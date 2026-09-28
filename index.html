@@ -73,4 +73,91 @@
       <button class="menu-toggle" aria-label="Abrir navegación">☰</button>
     </nav>
   </header>
+  <!-- ============================================
+       CONTENIDO PRINCIPAL DE LA PÁGINA
+       ============================================ -->
+  <main class="page-layout" id="inicio">
+    
+    <!-- ============================================
+         COLUMNA IZQUIERDA - PERFIL DE USUARIO
+         ============================================ -->
+    <aside class="profile-card panel" aria-label="Resumen del perfil">
+      <div class="profile-heading">
+        <!-- Avatar y datos del usuario -->
+        <div class="avatar"><span class="image-placeholder">Foto</span></div>
+        <div>
+          <div class="name-line">
+            <h2>Mateo Valencia</h2>
+            <span class="badge pro">PRO</span>
+          </div>
+          <p class="muted">Lead AI Architect en Loop</p>
+        </div>
+      </div>
+      
+      <!-- Estadísticas del perfil -->
+      <div class="stats">
+        <div><span>Contactos de red</span><strong class="lime-text">1,420</strong></div>
+        <div><span>Visualizaciones perfil</span><strong>423</strong></div>
+      </div>
+    </aside>
+
+    <!-- ============================================
+         COLUMNA CENTRAL - FEED DE PUBLICACIONES
+         ============================================ -->
+    <section class="feed" aria-label="Publicaciones">
+      
+      <!-- Composición de nueva publicación -->
+      <form class="composer panel" action="#" method="get">
+        <div class="avatar avatar-mini"><span class="image-placeholder">Foto</span></div>
+        <label class="composer-input">
+          <span class="visually-hidden">Comparte una publicación</span>
+          <input type="text" placeholder="¿Qué estás pensando o creando hoy, Mateo?">
+        </label>
+      </form>
+
+      <!-- Publicación 1 - Elena Rostova -->
+      <article class="post panel">
+        <header class="post-header">
+          <div class="avatar"><span class="image-placeholder">Foto</span></div>
+          <div class="post-author">
+            <h2>Elena Rostova</h2>
+            <p class="muted">DevOps Lead @ TechCorp</p>
+          </div>
+          <button class="more" aria-label="Más opciones">•••</button>
+        </header>
+        <p class="post-copy">Acabamos de implementar la nueva arquitectura de microservicios con latencia ultra baja, ¡increíble el cambio de rendimiento! ¿Alguien más usando Kubernetes con gRPC? 🚀</p>
+        <footer class="post-actions">
+          <button class="like"><span aria-hidden="true">♡</span> 42 likes</button>
+          <button class="comments"><span aria-hidden="true">▢</span> 12 comentarios</button>
+        </footer>
+      </article>
+
+      <!-- Publicación 2 - Carlos Ruiz -->
+      <article class="post panel">
+        <header class="post-header">
+          <div class="avatar"><span class="image-placeholder">Foto</span></div>
+          <div class="post-author">
+            <h2>Carlos Ruiz</h2>
+            <p class="muted">Product Designer @ Loop</p>
+          </div>
+          <button class="more" aria-label="Más opciones">•••</button>
+        </header>
+        <p class="post-copy">Hoy liberamos la versión móvil beta de Loop. Enfocados totalmente en una experiencia oscura fluida, con accesibilidad extrema para desarrolladores. ¡Feedback bienvenido! ✨</p>
+        <footer class="post-actions">
+          <button class="like"><span aria-hidden="true">♡</span> 89 likes</button>
+          <button class="comments"><span aria-hidden="true">▢</span> 24 comentarios</button>
+        </footer>
+      </article>
+    </section>
+
+    <!-- ============================================
+         COLUMNA DERECHA - CARD PREMIUM
+         ============================================ -->
+    <aside class="premium-card panel">
+      <p class="eyebrow lime-text"><span class="status-dot"></span> MEMBRESÍA EXCLUSIVA</p>
+      <h2>Impulsa tu red con Loop Premium</h2>
+      <p class="muted">Conéctate directamente con perfiles C-level, obtén análisis avanzados y destaca de forma prioritaria en los resultados de búsqueda.</p>
+      <a class="primary-button btn btn-primary w-100" href="#premium">Mejorar ahora</a>
+    </aside>
+  </main>
 
