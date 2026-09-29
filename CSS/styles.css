@@ -653,8 +653,9 @@ h2, p {
 .about-kicker { 
   margin: 0 0 10px; 
   color: var(--lime); 
-  font: 700 9px var(--mono-font); 
-  letter-spacing: .3px; 
+  font: 700 13px var(--mono-font); 
+  letter-spacing: 1.5px; 
+  text-transform: uppercase;
 }
 
 /* Título de la visión */
