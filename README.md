@@ -47,6 +47,20 @@ En un mercado altamente competitivo, **LOOP** busca solucionar la falta de espac
 
 ## 2. Diseño
 
+### Plantillas de wireframes
+
+Las plantillas y propuestas de diseño de Loop se encuentran documentadas en **Figma**, donde se desarrollaron las diferentes etapas de diseño de las interfaces.
+
+Se cuenta con:
+
+- **Wireframes de baja fidelidad:** utilizados para definir la estructura, distribución y jerarquía de los elementos antes de establecer el diseño visual definitivo.
+- **Wireframes de alta fidelidad:** utilizados para representar con mayor precisión la apariencia final de las páginas, incluyendo colores, tipografías, componentes, espaciados y distribución visual.
+
+Estas plantillas sirven como referencia para comparar y mantener la correspondencia entre el diseño realizado en Figma y la implementación desarrollada en HTML, CSS y Bootstrap.
+
+**Archivo de diseño en Figma:**  
+[LOOP — Baja y Alta Fidelidad](https://www.figma.com/design/9PJFqZVGwwdBltLbTNMkW3/LOOP-BAJA-Y-ALTA-FIDELIDAD?node-id=54-2&t=o5OgTIALty7GO8YF-0)
+
 ## Paleta de colores
 
 La paleta se encuentra centralizada mediante variables CSS en `:root`.
