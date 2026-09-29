@@ -822,6 +822,13 @@ h2, p {
   font: 400 9px var(--mono-font); 
 }
 
+.imgMission{
+  background-image: url("../img/codeInGlasses.jpg");
+  background-size: contain;      
+  background-repeat: no-repeat;  
+  background-position: center;  
+}
+
 /* Etiqueta dentro del marco de imagen */
 .about-image-placeholder span { 
   padding: 7px 10px; 
@@ -916,6 +923,13 @@ h2, p {
   border: 1px dashed #49425b; 
   border-radius: 8px; 
   background: #10101a; 
+}
+
+.photoSelene{
+  background-image: url("../img/SelenePhoto.jpg");
+  background-size: contain;      
+  background-repeat: no-repeat;  
+  background-position: center;  
 }
 
 /* Área de descripción del integrante */
