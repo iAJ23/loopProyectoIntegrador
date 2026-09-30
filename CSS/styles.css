@@ -1125,6 +1125,14 @@ h2, p {
   object-fit: contain;
 }
 
+/*Estilo del logo */
+ .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+
 /* Contenedor/botón del enlace a GitHub dentro del equipo ejecutivo */
 .executive-team .team-github {
   /* Define un tamaño fijo de 34px dentro de un contenedor flex */

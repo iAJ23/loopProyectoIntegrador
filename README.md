@@ -2,6 +2,7 @@
 
 Bienvenido al repositorio oficial de **LOOP**, la red social y plataforma de colaboración diseñada específicamente para programadores, estudiantes y profesionales del sector tecnológico.
 
+=======
 
 
 ```text
@@ -225,6 +226,7 @@ Estas clases y variables permiten mantener una **consistencia visual** entre las
 
 
 ## 3. Arquitectura del proyecto
+>>>>>>> develop
 | Capa | Tecnologías |
 | :--- | :--- |
 | **Front End** | HTML5, CSS3, Bootstrap 4, ECMAScript 6 (JavaScript) |
@@ -232,6 +234,7 @@ Estas clases y variables permiten mantener una **consistencia visual** entre las
 | **Base de Datos** | MySQL |
 | **Control de Versiones** | Git, GitHub |
 
+=======
 ## 4. Páginas y funcionanilidades 
 
 ## 5. Desarrollo
@@ -241,6 +244,7 @@ El proyecto se desarrolla bajo la metodología ágil **Scrum**, implementando un
 ## 6. Historial / avances
 
 ## 7. Integrantes del Equipo
+>>>>>>> develop
 * Selene Kanagusico López
 * Efraín Sagols Palacios
 * Víctor Manuel Lázaro Bravo
@@ -249,5 +253,7 @@ El proyecto se desarrolla bajo la metodología ágil **Scrum**, implementando un
 * Ángel Ochoa
 * Álvaro Terrones
 
+=======
 
+>>>>>>> develop
 
