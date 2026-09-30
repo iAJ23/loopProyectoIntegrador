@@ -842,6 +842,13 @@ h2, p {
   font: 400 9px var(--mono-font); 
 }
 
+.imgMission{
+  background-image: url("../images/nosotros/codeInGlasses.jpg");
+  background-size: contain 80%;      
+  background-repeat: no-repeat;  
+  background-position: center;  
+}
+
 /* Etiqueta dentro del marco de imagen */
 .about-image-placeholder span { 
   padding: 7px 10px; 
@@ -936,6 +943,13 @@ h2, p {
   border: 1px dashed #49425b; 
   border-radius: 8px; 
   background: #10101a; 
+}
+
+.photoSelene{
+  background-image: url("../images/nosotros/SelenePhoto.jpg");
+  background-size: contain;      
+  background-repeat: no-repeat;  
+  background-position: center;  
 }
 
 /* Área de descripción del integrante */
@@ -1103,3 +1117,70 @@ h2, p {
   transform: none;
   filter: grayscale(100%);
 }
+=======
+/*Stilo del logo */
+ .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Contenedor/botón del enlace a GitHub dentro del equipo ejecutivo */
+.executive-team .team-github {
+  /* Define un tamaño fijo de 34px dentro de un contenedor flex */
+  flex: 0 0 34px;
+
+  /* Ancho del botón */
+  width: 34px;
+
+  /* Alto del botón */
+  height: 34px;
+
+  /* Utiliza CSS Grid para centrar el contenido */
+  display: grid;
+
+  /* Centra horizontal y verticalmente el contenido */
+  place-items: center;
+
+  /* Borde blanco de 1px */
+  border: 1px solid #ffffff;
+
+  /* Redondea las esquinas del botón */
+  border-radius: 7px;
+
+  /* Color del contenido, por ejemplo el icono de GitHub */
+  color: #ffffff;
+
+  /* Color de fondo oscuro */
+  background: #171717;
+
+  /* Anima suavemente los cambios de fondo, color y posición */
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+/* Icono SVG de GitHub dentro del botón */
+.executive-team .team-github svg {
+  /* Ancho del icono */
+  width: 20px;
+
+  /* Alto del icono */
+  height: 20px;
+
+  /* Utiliza el color definido en el elemento padre */
+  fill: currentColor;
+}
+
+/* Estado del botón cuando el usuario pasa el mouse
+   o cuando recibe el foco mediante teclado */
+.executive-team .team-github:hover,
+.executive-team .team-github:focus-visible {
+  /* Cambia el icono a color oscuro */
+  color: #171717;
+
+  /* Cambia el fondo a blanco */
+  background: #ffffff;
+
+  /* Eleva ligeramente el botón 1px */
+  transform: translateY(-1px);
+}
+/*Termina seccion victor */
