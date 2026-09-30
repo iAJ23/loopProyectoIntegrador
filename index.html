@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- ============================================
+       METADATOS Y CONFIGURACIÓN DEL DOCUMENTO
+       ============================================ -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0b14">
+    <title>Loop — Inicio</title>
+
+    <!-- ============================================
+       LIBRERÍAS EXTERNAS (Bootstrap y Google Fonts)
+       ============================================ -->
+    <!-- Bootstrap 5.3.8 - Framework CSS para diseño responsivo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Google Fonts - Tipografía personalizada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ============================================
+       HOJAS DE ESTILO PERSONALIZADAS
+       ============================================ -->
+    <link rel="stylesheet" href="./CSS/styles.css">
+  
+</head>
+
+<!-- ============================================
+       CUERPO DEL DOCUMENTO
+       ============================================ -->
+<body>
+
+  <!-- ============================================
+       ENCABEZADO / BARRA DE NAVEGACIÓN
+       ============================================ -->
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Navegación principal">
+      
+      <!-- Logo y marca Loop -->
+      <a class="brand d-inline-flex align-items-center" href="#inicio" aria-label="Loop, inicio">
+        <img src="./images/logo/logo.png" alt="" class="logo" aria-hidden="true">
+        <span>Loop</span>
+      </a>
+      
+      <!-- Enlaces de navegación principales -->
+      <div class="nav-links">
+        <a class="nav-link active" href="#inicio" aria-current="page">Inicio</a>
+        <a class="nav-link" href="#explorar">Explorar</a>
+        <a class="nav-link" href="#amigos">Amigos</a>
+        <a class="nav-link" href="#mensajes">Mensajes</a>
+        <a class="nav-link" href="./acercade.html">Contáctanos</a>
+      </div>
+      
+      <!-- Acciones de usuario (búsqueda, avatar, menú) -->
+      <div class="nav-actions">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" placeholder="Buscar..." aria-label="Buscar">
+        </label>
+        <button class="avatar avatar-small" aria-label="Abrir perfil de Mateo">
+          <span class="image-placeholder">Foto</span>
+        </button>
+        <button class="chevron" aria-label="Abrir menú de perfil">⌄</button>
+      </div>
+      
+      <!-- Botón menú hamburguesa para móviles -->
+      <button class="menu-toggle" aria-label="Abrir navegación">☰</button>
+    </nav>
+  </header>
+  <!-- ============================================
+       CONTENIDO PRINCIPAL DE LA PÁGINA
+       ============================================ -->
+  <main class="page-layout" id="inicio">
+    
+    <!-- ============================================
+         COLUMNA IZQUIERDA - PERFIL DE USUARIO
+         ============================================ -->
+    <aside class="profile-card panel" aria-label="Resumen del perfil">
+      <div class="profile-heading">
+        <!-- Avatar y datos del usuario -->
+        <div class="avatar"><span class="image-placeholder">Foto</span></div>
+        <div>
+          <div class="name-line">
+            <h2>Mateo Valencia</h2>
+            <span class="badge pro">PRO</span>
+          </div>
+          <p class="muted">Lead AI Architect en Loop</p>
+        </div>
+      </div>
+      
+      <!-- Estadísticas del perfil -->
+      <div class="stats">
+        <div><span>Contactos de red</span><strong class="lime-text">1,420</strong></div>
+        <div><span>Visualizaciones perfil</span><strong>423</strong></div>
+      </div>
+    </aside>
+
+    <!-- ============================================
+         COLUMNA CENTRAL - FEED DE PUBLICACIONES
+         ============================================ -->
+    <section class="feed" aria-label="Publicaciones">
+      
+      <!-- Composición de nueva publicación -->
+      <form class="composer panel" action="#" method="get">
+        <div class="avatar avatar-mini"><span class="image-placeholder">Foto</span></div>
+        <label class="composer-input">
+          <span class="visually-hidden">Comparte una publicación</span>
+          <input type="text" placeholder="¿Qué estás pensando o creando hoy, Mateo?">
+        </label>
+      </form>
+
+      <!-- Publicación 1 - Elena Rostova -->
+      <article class="post panel">
+        <header class="post-header">
+          <div class="avatar"><span class="image-placeholder">Foto</span></div>
+          <div class="post-author">
+            <h2>Elena Rostova</h2>
+            <p class="muted">DevOps Lead @ TechCorp</p>
+          </div>
+          <button class="more" aria-label="Más opciones">•••</button>
+        </header>
+        <p class="post-copy">Acabamos de implementar la nueva arquitectura de microservicios con latencia ultra baja, ¡increíble el cambio de rendimiento! ¿Alguien más usando Kubernetes con gRPC? 🚀</p>
+        <footer class="post-actions">
+          <button class="like"><span aria-hidden="true">♡</span> 42 likes</button>
+          <button class="comments"><span aria-hidden="true">▢</span> 12 comentarios</button>
+        </footer>
+      </article>
+
+      <!-- Publicación 2 - Carlos Ruiz -->
+      <article class="post panel">
+        <header class="post-header">
+          <div class="avatar"><span class="image-placeholder">Foto</span></div>
+          <div class="post-author">
+            <h2>Carlos Ruiz</h2>
+            <p class="muted">Product Designer @ Loop</p>
+          </div>
+          <button class="more" aria-label="Más opciones">•••</button>
+        </header>
+        <p class="post-copy">Hoy liberamos la versión móvil beta de Loop. Enfocados totalmente en una experiencia oscura fluida, con accesibilidad extrema para desarrolladores. ¡Feedback bienvenido! ✨</p>
+        <footer class="post-actions">
+          <button class="like"><span aria-hidden="true">♡</span> 89 likes</button>
+          <button class="comments"><span aria-hidden="true">▢</span> 24 comentarios</button>
+        </footer>
+      </article>
+    </section>
+
+    <!-- ============================================
+         COLUMNA DERECHA - CARD PREMIUM
+         ============================================ -->
+    <aside class="premium-card panel">
+      <p class="eyebrow lime-text"><span class="status-dot"></span> MEMBRESÍA EXCLUSIVA</p>
+      <h2>Impulsa tu red con Loop Premium</h2>
+      <p class="muted">Conéctate directamente con perfiles C-level, obtén análisis avanzados y destaca de forma prioritaria en los resultados de búsqueda.</p>
+      <a class="primary-button btn btn-primary w-100" href="#premium">Mejorar ahora</a>
+    </aside>
+  </main>
+
+<!-- ============================================
+       PIE DE PÁGINA / FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      
+      <!-- Sección "Acerca de" -->
+      <div class="footer-about">
+        <a class="brand footer-brand" href="#inicio">
+           <img src="./images/logo/logo.png" alt="" class="logo" aria-hidden="true">
+          <span>Loop</span>
+        </a>
+        <p>La plataforma de networking premium diseñada<br>por y para desarrolladores e ingenieros de<br>software. Conexión directa y análisis avanzados<br>sin ruido intrusivo.</p>
+      </div>
+      
+      <!-- Columna: Plataforma -->
+      <div class="footer-column">
+        <h2>Plataforma</h2>
+        <a href="#explorar">Explorar Red</a>
+        <a href="#premium">Loop Premium</a>
+        <a href="#empleos">Empleos Tech</a>
+      </div>
+      
+      <!-- Columna: Compañía -->
+      <div class="footer-column">
+        <h2>Compañía</h2>
+        <a href="./acercade.html">Acerca de Nosotros</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      
+      <!-- Columna: Recursos -->
+      <div class="footer-column">
+        <h2>Recursos</h2>
+        <a href="#blog">Blog Técnico</a>
+        <a href="#ayuda">Centro de Ayuda</a>
+        <a href="#api">API Developer</a>
+      </div>
+    </div>
+    
+    <!-- Barra inferior con copyright y enlaces legales -->
+    <div class="footer-bottom">
+      <span>© 2026 Loop Technology Inc. Todos los derechos reservados.</span>
+      <div>
+        <a href="#privacidad">Privacidad</a>
+        <a href="#terminos">Términos de servicio</a>
+        <a href="#cookies">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       SCRIPTS - Bootstrap JS
+       ============================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
+
