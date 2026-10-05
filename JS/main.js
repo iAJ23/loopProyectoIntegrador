@@ -1,6 +1,6 @@
-// main.js
+// Función que carga Navbar y Footer 
 
-function cargarComponente(rutaArchivo, idContenedor) {
+function cargarComponente(rutaArchivo, idContainer) {
   fetch(rutaArchivo)
     .then(respuesta => {
       if (!respuesta.ok) {
@@ -9,24 +9,20 @@ function cargarComponente(rutaArchivo, idContenedor) {
       return respuesta.text();
     })
     .then(htmlContenido => {
-      const contenedor = document.getElementById(idContenedor);
+      const contenedor = document.getElementById(idContainer);
       if (contenedor) {
-        // Reemplaza el <div> por el contenido real del componente
+        // Reemplaza el <div> contenedor por el HTML real del componente (<nav> o <footer>)
         contenedor.outerHTML = htmlContenido;
       }
     })
     .catch(error => console.error("Error al cargar componente:", error));
 }
 
-// Ejecutar de forma segura cuando el HTML base esté listo
+// Ejecutar cuando el HTML base esté listo
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("contenedor-menu")) {
-    cargarComponente("./html/menu.html", "contenedor-menu");
-  }
 
-  if (document.getElementById("contenedor-footer")) {
-    cargarComponente("./html/footer.html", "contenedor-footer");
-  }
+  cargarComponente("./HTML/menu.html", "menuContainer");
+  cargarComponente("./HTML/footer.html", "footerContainer");
 });
 
 
