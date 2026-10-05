@@ -636,17 +636,42 @@ h2, p {
   overflow: visible; 
 }
 
-/* Tarjetas de Misión y Visión */
-.vision-panel, .values-panel { 
+/* Paneles institucionales de Visión, Misión y Valores */
+.vision-panel, .mission-panel, .values-panel {
   min-height: 202px; 
   padding: 30px 55px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
   background: var(--modular-gray); 
   border-color: #302044; 
   border-radius: 15px; 
+}
+
+.vision-panel, .values-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-panel {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 42px;
+}
+
+.mission-copy h2 {
+  margin: 0 0 12px;
+  color: #e9e7f1;
+  font: 700 19px var(--heading-font);
+}
+
+.mission-copy > p:not(.about-kicker) {
+  color: var(--text-muted);
+  font: 400 12px/1.65 var(--body-font);
+}
+
+.mission-panel .about-image-placeholder {
+  height: 220px;
 }
 
 /* Subtítulo decorativo en la sección "Acerca de" */
@@ -852,21 +877,6 @@ h2, p {
   display: block;
   border-radius: 14px;
 }
-/*
-.imgMission{
-  background-image: url("../images/nosotros/codeInGlasses.jpg");
-  background-size: contain 80%;      
-  background-repeat: no-repeat;  
-  background-position: center;  
-}
-  */
-.imgMission {
-  background-image: url("../images/nosotros/codeInGlasses.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 /* Etiqueta dentro del marco de imagen */
 .about-image-placeholder span { 
   padding: 7px 10px; 
@@ -1082,6 +1092,8 @@ h2, p {
   .about-page { padding: 0 18px; } 
   .about-content { margin-top: 22px; } 
   .vision-panel, .values-panel { min-height: 190px; padding: 26px 38px; } 
+  .mission-panel { grid-template-columns: 1fr; gap: 18px; padding: 26px 38px; }
+  .mission-panel .about-image-placeholder { height: 200px; }
   .vision-panel h1 { font-size: 24px; } 
   .mission-feature { grid-template-columns: 1fr; gap: 18px; margin-top: 0; } /* Pasa misión a 1 sola columna */
   .mission-art { min-height: 200px; } 
@@ -1094,6 +1106,7 @@ h2, p {
   .about-page { padding: 0 14px; } 
   .about-content { margin-top: 18px; } 
   .vision-panel, .values-panel { min-height: 205px; padding: 23px 25px; } 
+  .mission-panel { padding: 23px 25px; }
   .vision-panel h1 { font-size: 21px; } 
   .vision-copy { font-size: 11px; } 
   .wide-break { display: none; } /* Oculta saltos de línea diseñados para pantallas grandes */
