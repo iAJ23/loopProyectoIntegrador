@@ -24,51 +24,21 @@
     <!-- ============================================
        HOJAS DE ESTILO PERSONALIZADAS
        ============================================ -->
+       <link rel="stylesheet" href="./CSS/global.css">
+  <!-- Estilos Globales (Variables, Reseteo, Header y Footer) -->
+        <link rel="stylesheet" href="./CSS/home.css">
 
-    <link rel="stylesheet" href="./CSS/styles.css">
+      <!--<link rel="stylesheet" href="./CSS/styles.css">-->
   
 
 </head>
 
 <!-- CUERPO DEL DOCUMENTO -->
 <body>
+  <!-- HEADER: conserva la estructura del encabezado compartido del proyecto -->
+    <div id="menuContainer"></div>
 
-  <!-- ENCABEZADO / BARRA DE NAVEGACIÓN -->
-  <header class="site-header">
-    <nav class="nav-shell" aria-label="Navegación principal">
-      
-      <!-- Logo y marca Loop -->
-      <a class="brand d-inline-flex align-items-center" href="#inicio" aria-label="Loop, inicio">
-        <img src="./images/logo/logo.png" alt="" class="logo" aria-hidden="true">
-        <span>Loop</span>
-      </a>
-      
-      <!-- Enlaces de navegación principales -->
-      <div class="nav-links">
-        <a class="nav-link active" href="#inicio" aria-current="page">Inicio</a>
-        <a class="nav-link" href="#explorar">Explorar</a>
-        <a class="nav-link" href="#amigos">Amigos</a>
-        <a class="nav-link" href="#mensajes">Mensajes</a>
-        <a class="nav-link" href="acercade.html">Acerca de </a>
-        <a class="nav-link" href="contactanos.html">Contáctanos</a>
-      </div>
-      
-      <!-- Acciones de usuario (búsqueda, avatar, menú) -->
-      <div class="nav-actions">
-        <label class="search-box">
-          <span aria-hidden="true">⌕</span>
-          <input type="search" placeholder="Buscar..." aria-label="Buscar">
-        </label>
-        <button class="avatar avatar-small" aria-label="Abrir perfil de Mateo">
-          <span class="image-placeholder">Foto</span>
-        </button>
-        <button class="chevron" aria-label="Abrir menú de perfil">⌄</button>
-      </div>
-      
-      <!-- Botón menú hamburguesa para móviles -->
-      <button class="menu-toggle" aria-label="Abrir navegación">☰</button>
-    </nav>
-  </header>
+
   <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
   <main class="page-layout" id="inicio">
     
@@ -150,58 +120,9 @@
   </main>
 
 
-<!-- ============================================
-       PIE DE PÁGINA / FOOTER
-       ============================================ -->
-
-<!-- PIE DE PÁGINA / FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-main">
-      
-      <!-- Sección "Acerca de" -->
-      <div class="footer-about">
-        <a class="brand footer-brand" href="#inicio">
-           <img src="./images/logo/logo.png" alt="" class="logo" aria-hidden="true">
-          <span>Loop</span>
-        </a>
-        <p>La plataforma de networking premium diseñada<br>por y para desarrolladores e ingenieros de<br>software. Conexión directa y análisis avanzados<br>sin ruido intrusivo.</p>
-      </div>
-      
-      <!-- Columna: Plataforma -->
-      <div class="footer-column">
-        <h2>Plataforma</h2>
-        <a href="#explorar">Explorar Red</a>
-        <a href="#premium">Loop Premium</a>
-        <a href="#empleos">Empleos Tech</a>
-      </div>
-      
-      <!-- Columna: Compañía -->
-      <div class="footer-column">
-        <h2>Compañía</h2>
-        <a href="./acercade.html">Acerca de Nosotros</a>
-        <a href="#seguridad">Seguridad</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      
-      <!-- Columna: Recursos -->
-      <div class="footer-column">
-        <h2>Recursos</h2>
-        <a href="#blog">Blog Técnico</a>
-        <a href="#ayuda">Centro de Ayuda</a>
-        <a href="#api">API Developer</a>
-      </div>
-    </div>
-    
-    <!-- Barra inferior con copyright y enlaces legales -->
-    <div class="footer-bottom">
-      <span>© 2026 Loop Technology Inc. Todos los derechos reservados.</span>
-      <div>
-        <a href="#privacidad">Privacidad</a>
-        <a href="#terminos">Términos de servicio</a>
-        <a href="#cookies">Cookies</a>
-      </div>
-    </div>
-  </footer>
+<!-- FOOTER: mantiene la estructura y columnas del pie global del proyecto -->
+     <div id="footerContainer"></div>
+      <script src="./JS/main.js"></script>
 
 
   <!-- ============================================

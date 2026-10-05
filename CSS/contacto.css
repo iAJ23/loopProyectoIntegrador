@@ -1,0 +1,236 @@
+/* Importa los estilos globales compartidos (variables, reset, header y footer) */
+@import url('global.css');
+
+/* ==========================================
+   SECCIÓN: CONTÁCTANOS
+   ========================================== */
+
+/* Añade aquí únicamente los estilos específicos para la vista contacto.html */
+
+
+/* ============================================================
+   CONTACTANOS — ESTILOS DE LA PÁGINA
+   ============================================================ */
+
+/* CONTENEDOR DEL CUERPO: centra el contenido sin alterar header/footer */
+.contact-page {
+  width: min(1200px, calc(100% - 46px));
+  margin: 0 auto;
+}
+
+/* HERO: encabezado principal y descripción de soporte */
+.contact-hero {
+  padding: 25px 12px 22px;
+  text-align: center;
+}
+
+.contact-eyebrow {
+  margin: 0 0 7px;
+  color: var(--white);
+  font: 700 9px var(--mono-font);
+}
+
+.contact-eyebrow span { color: var(--lime); }
+
+.contact-hero h1 {
+  margin: 0;
+  color: #e9e7f1;
+  font: 800 27px/1.25 var(--heading-font);
+}
+
+.contact-intro {
+  margin: 7px 0 0;
+  color: var(--text-muted);
+  font: 400 11px/1.45 var(--body-font);
+}
+
+/* CENTRO DE AYUDA: panel ancho con llamada a la acción */
+.help-banner {
+  min-height: 72px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: #11111f;
+  border-color: #302044;
+  border-radius: 12px;
+}
+
+.help-copy h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #e9e7f1;
+  font: 700 12px var(--heading-font);
+}
+
+.help-icon {
+  width: 13px;
+  height: 13px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--lime);
+  border-radius: 50%;
+  color: var(--lime);
+  font: 700 9px var(--mono-font);
+}
+
+.help-copy p {
+  margin: 5px 0 0;
+  color: var(--text-muted);
+  font: 400 9px/1.4 var(--body-font);
+}
+
+.help-link {
+  flex: 0 0 auto;
+  color: var(--lime);
+  font: 700 9px var(--mono-font);
+}
+
+.help-link:hover { color: var(--white); }
+
+/* CANAL DE CONTACTO: tarjeta de correo a todo el ancho disponible */
+.contact-channels { margin-top: 25px; }
+
+.channel-card {
+  min-height: 97px;
+  padding: 12px;
+  background: #11111f;
+  border-color: #302044;
+  border-radius: 10px;
+}
+
+.channel-icon {
+  display: block;
+  height: 19px;
+  color: var(--vivid-purple);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.channel-card h2 {
+  margin: 3px 0 5px;
+  color: #e9e7f1;
+  font: 700 10px var(--heading-font);
+}
+
+.channel-card p {
+  margin: 0 0 5px;
+  color: var(--text-muted);
+  font: 400 9px/1.45 var(--body-font);
+}
+
+.channel-detail {
+  color: var(--lime);
+  font: 700 8px var(--mono-font);
+}
+
+/* FORMULARIO + IMAGEN: columnas como en el wireframe de alta fidelidad */
+.contact-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 15px;
+  margin: 45px -23px 3px;
+}
+
+.contact-form {
+  min-height: 295px;
+  padding: 17px 18px;
+  background: #11111f;
+  border-color: #302044;
+  border-radius: 13px;
+}
+
+.contact-form h2 {
+  margin: 0 0 12px;
+  color: #e9e7f1;
+  font: 700 13px var(--heading-font);
+}
+
+.form-field { margin-bottom: 10px; }
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+  color: #d8d5e1;
+  text-transform: uppercase;
+  font: 700 7px var(--mono-font);
+}
+
+.form-field input,
+.form-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 29px;
+  padding: 7px 9px;
+  border: 1px solid #29233d;
+  border-radius: 6px;
+  outline: 0;
+  background: #0d0d19;
+  color: #e9e7f1;
+  font: 400 9px var(--body-font);
+}
+
+.form-field textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: #777587; opacity: 1; }
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--vivid-purple);
+  box-shadow: 0 0 0 2px rgb(124 58 237 / 16%);
+}
+
+/* Botón de enviar con el violeta principal de la paleta */
+.send-button {
+  width: 100%;
+  min-height: 30px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--vivid-purple);
+  color: var(--white);
+  cursor: pointer;
+  font: 700 9px var(--body-font);
+  transition: background .2s ease;
+}
+
+.send-button:hover { background: var(--electric-violet); }
+
+/* ESPACIO PARA IMAGEN: conserva el panel vacío mostrado en el wireframe */
+.contact-image-space {
+  min-height: 295px;
+  border: 1px solid #302044;
+  border-radius: 13px;
+  background: #11111f;
+}
+
+/* AJUSTE DEL FOOTER: garantiza separación visual bajo el contenido */
+.contact-page + .site-footer { margin-top: 0; }
+
+/* TABLET: reduce márgenes y conserva dos columnas mientras quepan */
+@media (max-width: 800px) {
+  .contact-page { width: min(100% - 36px, 720px); }
+  .contact-lower { margin-right: -18px; margin-left: -18px; }
+  .contact-hero h1 { font-size: 24px; }
+}
+
+/* MÓVIL: organiza el contenido en una columna */
+@media (max-width: 620px) {
+  .contact-page { width: calc(100% - 28px); }
+  .contact-hero { padding: 22px 0 18px; }
+  .contact-hero h1 { font-size: 21px; }
+  .contact-intro { font-size: 10px; }
+  .desktop-break { display: none; }
+  .help-banner { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .help-copy p { font-size: 8px; }
+  .contact-channels { margin-top: 16px; }
+  .contact-lower { grid-template-columns: 1fr; gap: 12px; margin: 24px 0 0; }
+  .contact-form { min-height: 0; }
+  .contact-image-space { min-height: 210px; }
+}

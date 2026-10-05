@@ -1,5 +1,6 @@
 // Función que carga Navbar y Footer 
 
+
 function cargarComponente(rutaArchivo, idContainer) {
   fetch(rutaArchivo)
     .then(respuesta => {
@@ -20,9 +21,8 @@ function cargarComponente(rutaArchivo, idContainer) {
 
 // Ejecutar cuando el HTML base esté listo
 document.addEventListener("DOMContentLoaded", () => {
-
-  cargarComponente("./HTML/menu.html", "menuContainer");
-  cargarComponente("./HTML/footer.html", "footerContainer");
+  cargarComponente("../html/menu.html", "menuContainer"); 
+ cargarComponente("../html/footer.html", "footerContainer");
 });
 
 

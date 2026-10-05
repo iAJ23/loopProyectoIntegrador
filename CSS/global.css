@@ -1,0 +1,355 @@
+/* Importación de fuentes tipográficas desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap');
+
+/* Declaración de variables globales de CSS (Custom Properties) */
+:root {
+  color-scheme: dark; /* Indica al navegador que la aplicación usa un tema oscuro nativo */
+  --space-black: #0b0b14; /* Color de fondo principal ultra oscuro */
+  --modular-gray: #131320; /* Color de fondo para paneles y tarjetas */
+  --white: #ffffff; /* Color blanco puro para texto destacado */
+  --neutral-gray: #9ca3af; /* Color gris secundario para textos de menor jerarquía */
+  --vivid-purple: #7c3aed; /* Color violeta primario para acentos y botones */
+  --electric-violet: #753bbd; /* Variante de violeta para estados hover */
+  --neon-green: #10b981; /* Verde neón para estados activos/éxito */
+  --border-gray: #2a2a3c; /* Color para bordes sutiles */
+  --lime: #aaff00; /* Verde lima vibrante para indicadores y badges */
+  --text-muted: #888798; /* Color para texto atenuado o secundario */
+  --heading-font: "Sora", sans-serif; /* Fuente tipográfica principal para títulos */
+  --body-font: "Inter", sans-serif; /* Fuente tipográfica para texto de cuerpo */
+  --mono-font: "JetBrains Mono", monospace; /* Fuente monoespaciada para datos y badges */
+}
+
+/* Regla de reseteo universal para el modelo de caja */
+* { 
+  box-sizing: border-box; /* Incluye el padding y border dentro del ancho y alto total */
+}
+
+/* Configuración base del elemento HTML */
+html { 
+  min-width: 320px; /* Evita que la pantalla se reduzca a menos de 320px para prevenir colapsos */
+  background: var(--space-black); /* Aplica el fondo principal oscuro */
+}
+
+/* Estilos globales para el cuerpo del documento */
+body { 
+  margin: 0; /* Elimina los márgenes por defecto del navegador */
+  background: var(--space-black); /* Fondo general de la página */
+  color: #e8e6f0; /* Color de texto por defecto */
+  font: 400 14px/1.5 var(--body-font); /* Fuente: peso 400, tamaño 14px, interlineado 1.5 */
+}
+
+/* Estilos base para hipervínculos */
+a { 
+  color: inherit; /* Hereda el color del elemento padre */
+  text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+}
+
+/* Normalización de fuentes en formularios */
+button, input { 
+  font: inherit; /* Fuerza a botones e inputs a usar la fuente heredada */
+}
+
+/* Normalización de color en botones */
+button { 
+  color: inherit; /* Hereda el color de texto del padre */
+}
+
+/* ==========================================
+   HEADER & NAVEGACIÓN
+   ========================================== */
+
+/* Encabezado principal del sitio */
+.site-header { 
+  height: 74px; /* Altura fija del header */
+  background: #090910; /* Fondo oscuro específico para el header */
+  border-bottom: 1px solid #211d31; /* Borde inferior para separar del contenido */
+}
+
+/* Contenedor interno del encabezado para centrar el contenido */
+.nav-shell { 
+  width: min(1200px, calc(100% - 48px)); /* Ancho máximo de 1200px o 100% menos 48px de margen */
+  height: 100%; /* Ocupa el 100% de la altura del .site-header */
+  margin: auto; /* Centra horizontalmente el contenedor */
+  display: flex; /* Activa el modelo Flexbox */
+  align-items: center; /* Centra verticalmente los elementos fijos */
+  gap: 28px; /* Espacio de 28px entre los elementos del flex */
+}
+
+/* Bloque del logo o marca comercial */
+.brand { 
+  display: inline-flex; /* Flexbox en línea para alinear icono y texto */
+  align-items: center; /* Centra verticalmente el contenido interno */
+  gap: 7px; /* Espaciado interno entre icono y texto */
+  flex: 0 0 160px; /* Flex no crece, no se reduce y tiene un ancho base de 160px */
+  color: var(--white); /* Texto en color blanco */
+  font: 800 20px/1 var(--heading-font); /* Fuente: peso 800, tamaño 20px, interlineado 1 */
+}
+
+/* Espacio temporal o marcador de posición para el logo */
+.logo-placeholder { 
+  display: inline-block; /* Comportamiento en línea con propiedad de bloque */
+  width: 29px; /* Ancho fijo del logo */
+  height: 25px; /* Altura fija del logo */
+  border: 1px dashed #79758b; /* Borde punteado en color gris */
+  border-radius: 5px; /* Esquinas ligeramente redondeadas */
+}
+
+/* Lista/Contenedor de enlaces de navegación */
+.nav-links { 
+  display: flex; /* Layout Flexbox horizontal */
+  align-self: stretch; /* Se estira para ocupar toda la altura del padre */
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: clamp(20px, 3.3vw, 48px); /* Espaciado fluido dinámico de 20px a 48px según la pantalla */
+  flex: 1; /* Ocupa todo el espacio sobrante en el contenedor */
+}
+
+/* Cada enlace individual de navegación */
+.nav-link { 
+  display: flex; /* Flexbox para centrado interno */
+  height: 100%; /* Toma toda la altura del contenedor padre */
+  align-items: center; /* Centrado vertical */
+  position: relative; /* Posicionamiento relativo para la línea indicadora absoluta */
+  color: #9b99a8; /* Color de texto inactivo */
+  font: 600 12px var(--heading-font); /* Fuente: peso 600, 12px con la tipografía de títulos */
+}
+
+/* Estado hover y activo de los enlaces */
+.nav-link:hover, .nav-link.active { 
+  color: var(--white); /* Cambia el color a blanco al pasar el cursor o estar activo */
+}
+
+/* Indicador visual de la pestaña activa (línea inferior) */
+.nav-link.active::after { 
+  content: ""; /* Pseudoelemento sin texto */
+  position: absolute; /* Posicionamiento absoluto respecto a .nav-link */
+  height: 2px; /* Grosor de la línea */
+  left: 0; /* Se extiende desde la izquierda */
+  right: 0; /* Hasta la derecha */
+  bottom: 7px; /* Distancia respecto al fondo */
+  background: var(--vivid-purple); /* Color morado para indicar selección */
+}
+
+/* Área de acciones a la derecha del header (búsqueda, usuario, etc.) */
+.nav-actions { 
+  display: flex; /* Layout Flexbox horizontal */
+  align-items: center; /* Centrado vertical */
+  gap: 12px; /* Espacio de 12px entre acciones */
+}
+
+/* Caja contenedora del buscador */
+.search-box { 
+  height: 36px; /* Altura del buscador */
+  width: 210px; /* Ancho fijo del buscador */
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Centra verticalmente icono e input */
+  gap: 9px; /* Espacio entre el icono y la caja de texto */
+  padding: 0 11px; /* Relleno interno horizontal */
+  border: 1px solid #302449; /* Borde violeta oscuro */
+  border-radius: 9px; /* Esquinas redondeadas */
+  background: #10101b; /* Fondo oscuro */
+  color: var(--text-muted); /* Color de texto neutro */
+}
+
+/* Icono dentro de la caja de búsqueda */
+.search-box > span { 
+  font-size: 19px; /* Tamaño del icono */
+  line-height: 1; /* Elimina espacio vertical extra */
+}
+
+/* Campos de entrada en la búsqueda y el compositor */
+.search-box input, .composer-input input { 
+  min-width: 0; /* Previene desbordamientos en contenedores Flexbox */
+  width: 100%; /* Ocupa todo el ancho libre dentro del contenedor */
+  border: 0; /* Elimina borde por defecto */
+  outline: 0; /* Elimina el borde al hacer foco */
+  color: var(--white); /* Texto escrito en color blanco */
+  background: transparent; /* Fondo transparente */
+  font: 400 11px var(--body-font); /* Fuente: peso 400, 11px */
+}
+
+/* Estilo para el texto de sugerencia (placeholder) en inputs */
+.search-box input::placeholder, .composer-input input::placeholder { 
+  color: #777587; /* Color de texto secundario para el placeholder */
+  opacity: 1; /* Asegura opacidad completa */
+}
+
+/* Contenedor del avatar de usuario */
+.avatar { 
+  width: 34px; /* Ancho fijo */
+  height: 34px; /* Altura fija */
+  flex: 0 0 auto; /* Evita que el avatar se deforme en Flexbox */
+  display: grid; /* Grid Layout */
+  place-items: center; /* Centra perfectamente el contenido (imagen o iniciales) */
+  border: 1px solid #39364a; /* Borde circular gris */
+  border-radius: 50%; /* Hace que la caja sea completamente circular */
+  background: #171725; /* Fondo del avatar */
+  overflow: hidden; /* Recorta cualquier imagen que sobresalga */
+}
+
+/* Modificador para avatar pequeño */
+.avatar-small { 
+  width: 31px; /* Ancho reducido */
+  height: 31px; /* Altura reducida */
+  padding: 0; /* Sin relleno interno */
+  border-color: var(--vivid-purple); /* Borde destacado en violeta */
+  cursor: pointer; /* Cambia el cursor a mano interactiva */
+}
+
+/* Modificador para avatar muy pequeño */
+.avatar-mini { 
+  width: 24px; /* Ancho mini */
+  height: 24px; /* Altura mini */
+}
+
+/* Texto de reemplazo para imágenes no cargadas */
+.image-placeholder { 
+  color: #827f92; /* Color apagado */
+  font: 400 8px var(--mono-font); /* Tipografía monoespaciada muy pequeña */
+}
+
+/* Botones de navegación desplegable y menú responsive */
+.chevron, .menu-toggle { 
+  border: 0; /* Quita borde nativo */
+  background: none; /* Sin fondo */
+  color: #a5a2b2; /* Color de icono */
+  cursor: pointer; /* Cursor interactivo */
+}
+
+/* Oculta el botón de menú hamburguesa por defecto en escritorio */
+.menu-toggle { 
+  display: none; 
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+/* Contenedor del pie de página */
+.site-footer { 
+  padding: 22px max(24px, calc((100% - 1200px) / 2)) 18px; /* Padding lateral responsivo alineado a 1200px */
+  border-top: 1px solid var(--border-gray); 
+  background: #090910; 
+}
+
+/* Grid del contenido principal del footer */
+.footer-main { 
+  display: grid; 
+  grid-template-columns: minmax(260px, 1fr) repeat(3, minmax(100px, 145px)); /* 1 columna grande + 3 medianas */
+  gap: 24px; 
+  padding-bottom: 20px; 
+}
+
+/* Nombre o marca en el footer */
+.footer-brand { 
+  margin-bottom: 8px; 
+  font-size: 15px; 
+}
+
+/* Ajuste de logo en el footer */
+.footer-brand .logo-placeholder { 
+  width: 21px; 
+  height: 19px; 
+}
+
+/* Texto explicativo en el footer */
+.footer-about p { 
+  color: var(--text-muted); 
+  font: 400 9px/1.55 var(--body-font); 
+}
+
+/* Columna de enlaces en el footer */
+.footer-column { 
+  display: grid; 
+  align-content: start; 
+  gap: 6px; 
+}
+
+/* Título de cada columna del footer */
+.footer-column h2 { 
+  margin-bottom: 1px; 
+  color: #e8e6f0; 
+  font: 700 10px var(--heading-font); 
+}
+
+/* Enlaces del footer y parte inferior */
+.footer-column a, .footer-bottom { 
+  color: var(--text-muted); 
+  font: 400 9px var(--body-font); 
+}
+
+/* Cambio de color de enlaces en hover */
+.footer-column a:hover, .footer-bottom a:hover { 
+  color: var(--white); 
+}
+
+/* Sub-footer (Copyright y legales) */
+.footer-bottom { 
+  border-top: 1px solid #262535; 
+  padding-top: 11px; 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 16px; 
+  font: 400 8px var(--mono-font); 
+}
+
+/* Contenedor Flex para enlaces legales en el sub-footer */
+.footer-bottom div { 
+  display: flex; 
+  gap: 18px; 
+}
+
+/* ==========================================
+   ACCESIBILIDAD
+   ========================================== */
+
+/* Oculta elementos de la vista sin sacarlos del árbol accesible (lectores de pantalla) */
+.visually-hidden { 
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0,0,0,0); 
+  white-space: nowrap; 
+  border: 0; 
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN GLOBAL (HEADER/FOOTER)
+   ========================================== */
+
+/* Pantallas medianas (Tablets / Laptops pequeñas - máx 900px) */
+@media (max-width: 900px) {
+  .nav-shell { width: min(760px, calc(100% - 36px)); gap: 16px; } 
+  .brand { flex-basis: auto; } 
+  .nav-links { gap: 18px; } 
+  .nav-link { font-size: 11px; } 
+  .search-box { width: 145px; } 
+  .site-footer { padding-left: 18px; padding-right: 18px; } 
+}
+
+/* Pantallas pequeñas (Móviles - máx 620px) */
+@media (max-width: 620px) {
+  .site-header { height: 62px; } 
+  .nav-shell { width: calc(100% - 28px); justify-content: space-between; } 
+  .brand { font-size: 18px; } 
+  .nav-links { display: none; } 
+  .nav-actions { margin-left: auto; } 
+  .search-box { width: min(38vw, 170px); height: 33px; } 
+  .chevron { display: none; } 
+  .menu-toggle { display: block; font-size: 18px; } 
+  .site-footer { margin-top: 32px; padding: 22px 14px 16px; } 
+  .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; } 
+  .footer-about { grid-column: 1 / -1; } 
+  .footer-about br { display: none; } 
+  .footer-bottom { flex-direction: column; } 
+  .footer-bottom div { flex-wrap: wrap; gap: 8px 14px; } 
+}
+
+/*Estilo del logo */
+ .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
