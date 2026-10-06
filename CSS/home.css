@@ -1,0 +1,283 @@
+/* ==========================================
+   LAYOUT PRINCIPAL Y PANELES
+   ========================================== */
+
+/* Estructura del grid de la página principal */
+.page-layout { 
+  width: min(1200px, calc(100% - 48px)); /* Mismo ancho responsivo que el header */
+  margin: 36px auto 0; /* Margen superior de 36px y centrado horizontal */
+  display: grid; /* Layout Grid de CSS */
+  grid-template-columns: minmax(190px, 260px) minmax(360px, 1fr) minmax(200px, 270px); /* Layout asimétrico de 3 columnas */
+  align-items: start; /* Alinea los elementos al inicio verticalmente */
+  gap: 22px; /* Separación de 22px entre las columnas */
+  min-height: 490px; /* Altura mínima reservada para la página */
+}
+
+/* Estilo base para paneles y tarjetas */
+.panel { 
+  background: var(--modular-gray); /* Fondo gris modular */
+  border: 1px solid #302044; /* Borde oscuro con matiz violeta */
+  border-radius: 15px; /* Bordes suaves de 15px */
+}
+
+/* ==========================================
+   COMPONENTES DE PERFIL, FEED Y TARJETAS
+   ========================================== */
+
+/* Tarjeta del perfil de usuario */
+.profile-card { 
+  padding: 13px; /* Espaciado interno de la tarjeta */
+}
+
+/* Encabezado dentro de la tarjeta de perfil */
+.profile-heading { 
+  display: flex; /* Flexbox horizontal */
+  align-items: center; /* Alinea avatar y nombre al centro vertical */
+  gap: 12px; /* Separación de 12px */
+  padding: 0 2px 13px; /* Relleno inferior */
+}
+
+/* Ajuste específico de tamaño de avatar en el perfil */
+.profile-heading .avatar { 
+  width: 33px; 
+  height: 33px; 
+}
+
+/* Línea que contiene el nombre de usuario y badges */
+.name-line { 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+}
+
+/* Reseteo de márgenes en encabezados y párrafos dentro de tarjetas */
+h2, p { 
+  margin: 0; 
+}
+
+/* Tipografía de títulos en tarjetas y publicaciones */
+.profile-heading h2, .post-author h2 { 
+  color: #e9e7f1; /* Texto claro */
+  font: 700 11px/1.4 var(--heading-font); /* Fuente: peso 700, 11px, interlineado 1.4 */
+}
+
+/* Clases de utilidad para texto secundario */
+.muted { 
+  color: var(--text-muted); /* Color gris atenuado */
+  font: 400 10px/1.5 var(--body-font); /* Fuente: peso 400, 10px */
+}
+
+/* Badge o etiqueta pequeña (ej. "PRO") */
+.badge { 
+  padding: 1px 4px; /* Relleno pequeño */
+  border-radius: 3px; /* Bordes ligeramente suaves */
+  font: 700 8px var(--mono-font); /* Fuente monoespaciada para estilo técnico */
+}
+
+/* Estilo específico para badge tipo Pro */
+.pro { 
+  color: var(--lime); /* Texto verde lima */
+  border: 1px solid #658000; /* Borde verde oscuro */
+}
+
+/* Sección de estadísticas en el perfil */
+.stats { 
+  padding-top: 8px; /* Relleno superior */
+  border-top: 1px solid #2c293b; /* Línea divisoria superior */
+  display: grid; /* Grid vertical */
+  gap: 5px; /* Espacio entre métricas */
+}
+
+/* Fila individual de estadística */
+.stats div { 
+  display: flex; 
+  justify-content: space-between; /* Texto a la izquierda, valor a la derecha */
+  gap: 7px; 
+  color: var(--text-muted); 
+  font: 400 9px var(--body-font); 
+}
+
+/* Valor numérico dentro de las estadísticas */
+.stats strong { 
+  color: #dddbe7; 
+  font: 700 9px var(--mono-font); /* Tipografía resaltada */
+}
+
+/* Clase de utilidad para forzar color verde lima */
+.lime-text { 
+  color: var(--lime) !important; 
+}
+
+/* Contenedor del feed de publicaciones */
+.feed { 
+  display: grid; 
+  gap: 13px; /* Separación entre publicaciones */
+}
+
+/* Caja para crear una nueva publicación (Compositor) */
+.composer { 
+  min-height: 49px; 
+  display: flex; 
+  align-items: center; 
+  gap: 11px; 
+  padding: 9px 12px; 
+}
+
+/* Campo de entrada de texto del compositor */
+.composer-input { 
+  display: flex; 
+  align-items: center; 
+  flex: 1; 
+  min-height: 27px; 
+  padding: 0 11px; 
+  border: 1px solid #33294c; 
+  border-radius: 18px; /* Forma de píldora */
+}
+
+/* Contenedor individual de una publicación */
+.post { 
+  padding: 13px; 
+}
+
+/* Encabezado de la publicación */
+.post-header { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+/* Área que contiene el nombre del autor */
+.post-author { 
+  flex: 1; /* Ocupa el espacio disponible */
+}
+
+/* Botón de opciones adicionales (...) */
+.more { 
+  border: 0; 
+  background: none; 
+  color: #888596; 
+  font-size: 13px; 
+  letter-spacing: 1px; 
+  cursor: pointer; 
+}
+
+/* Texto o contenido del post */
+.post-copy { 
+  margin: 12px 0 9px; 
+  color: #d1cfda; 
+  font: 400 11px/1.6 var(--body-font); 
+}
+
+/* Barra de acciones del post (likes, comentarios) */
+.post-actions { 
+  min-height: 24px; 
+  padding-top: 7px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  border-top: 1px solid #2a273a; /* Separador superior */
+}
+
+/* Botones dentro de la barra de acciones */
+.post-actions button { 
+  padding: 0; 
+  border: 0; 
+  background: none; 
+  cursor: pointer; 
+  font: 400 9px var(--mono-font); 
+}
+
+/* Estilo para botón me gusta */
+.like { 
+  color: var(--lime); 
+}
+
+/* Ajuste de tamaño del icono dentro del botón me gusta */
+.like span { 
+  font-size: 16px; 
+  vertical-align: -1px; 
+}
+
+/* Estilo para área de comentarios */
+.comments { 
+  color: var(--text-muted); 
+}
+
+/* Tarjeta destacada Premium */
+.premium-card { 
+  padding: 13px; 
+  border-color: var(--vivid-purple); /* Borde destacado morado */
+}
+
+/* Subtítulo superpuesto (Eyebrow) */
+.eyebrow { 
+  margin: 0 0 10px; 
+  font: 700 9px var(--mono-font); 
+}
+
+/* Punto de estado activo (Status Dot) */
+.status-dot { 
+  display: inline-block; 
+  width: 5px; 
+  height: 5px; 
+  margin: 0 4px 1px 0; 
+  border-radius: 50%; /* Esfera */
+  background: var(--lime); 
+}
+
+/* Título dentro de la tarjeta premium */
+.premium-card h2 { 
+  margin-bottom: 10px; 
+  font: 800 14px/1.35 var(--heading-font); 
+}
+
+/* Párrafos descriptivos dentro de la tarjeta premium */
+.premium-card > p:not(.eyebrow) { 
+  margin-bottom: 11px; 
+  font: 400 10px/1.55 var(--body-font); 
+}
+
+/* Botón principal reutilizable */
+.primary-button { 
+  min-height: 29px; 
+  display: grid; 
+  place-items: center; /* Centrado absoluto de texto */
+  border-radius: 6px; 
+  background: var(--vivid-purple); 
+  color: var(--white); 
+  font: 700 10px var(--body-font); 
+  transition: background .2s ease; /* Transición suave de color al pasar el cursor */
+}
+
+/* Estado hover del botón principal */
+.primary-button:hover { 
+  background: var(--electric-violet); 
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (HOME)
+   ========================================== */
+
+/* Pantallas medianas (Tablets / Laptops pequeñas - máx 900px) */
+@media (max-width: 900px) {
+  .page-layout { 
+    width: min(760px, calc(100% - 36px)); 
+    grid-template-columns: minmax(170px, .75fr) minmax(330px, 1.5fr); 
+    gap: 16px; 
+  } 
+  .premium-card { grid-column: 1 / -1; } /* Pasa la tarjeta premium abajo tomando todo el ancho */
+}
+
+/* Pantallas pequeñas (Móviles - máx 620px) */
+@media (max-width: 620px) {
+  .page-layout { 
+    width: calc(100% - 28px); 
+    margin-top: 20px; 
+    grid-template-columns: 1fr; 
+    gap: 13px; 
+  } /* Layout de 1 sola columna */
+  .profile-card { order: 0; } /* Primero el perfil */
+  .feed { order: 1; } /* Segundo el feed */
+  .premium-card { grid-column: auto; order: 2; } /* Tercero la tarjeta premium */
+  .post, .profile-card, .premium-card { border-radius: 12px; } 
+}
