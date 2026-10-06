@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos y título de la pestaña -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b14">
+  <title>Loop — Contáctanos</title>
+
+  <!-- Bootstrap 5.3.8: mismo framework que ya utiliza el proyecto -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Fuentes de marca compartidas por las otras pestañas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Conserva el CSS raíz del proyecto y carga los estilos propios de Contacto -->
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/global.css">
+  <!-- Estilos específicos de Misión, Visión y Equipo -->
+   <link rel="stylesheet" href="../CSS/home.css">
+  <link rel="stylesheet" href="../CSS/contacto.css"> 
+
+</head>
+<body>
+  <!-- HEADER: conserva la estructura del encabezado compartido del proyecto -->
+    <div id="menuContainer"></div>
+
+  <!-- CUERPO: contenido exclusivo de la pestaña según el wireframe -->
+  <main class="contact-page">
+    <!-- Introducción centrada de soporte -->
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <p class="contact-eyebrow">SOPORTE <span>·</span> SIEMPRE DISPONIBLES <span>·</span> SOPORTE 24/7</p>
+      <h1 id="contact-title">Hola, ¿en qué podemos ayudarte?</h1>
+      <p class="contact-intro">Nuestro equipo técnico y de moderadores está disponible de forma continua para<br class="desktop-break">
+        resolver tus consultas y guiarte en tu camino profesional.</p>
+    </section>
+
+    <!-- Banner con acceso al Centro de Ayuda -->
+    <section class="help-banner panel" aria-labelledby="help-title">
+      <div class="help-copy">
+        <h2 id="help-title"><span class="help-icon" aria-hidden="true">?</span> Centro de Ayuda Loop</h2>
+        <p>Explora respuestas instantáneas a preguntas frecuentes, guías detalladas sobre privacidad y mejores<br class="desktop-break">
+          prácticas de red.</p>
+      </div>
+      <a class="help-link" href="#centro-ayuda">Ir al Centro de Ayuda <span aria-hidden="true">›</span></a>
+    </section>
+
+    <!-- Canal de correo electrónico: tarjeta única como aparece en el wireframe -->
+    <section class="contact-channels" aria-label="Canal de contacto">
+      <article class="channel-card panel">
+        <span class="channel-icon" aria-hidden="true">✉</span>
+        <h2>Correo Electrónico</h2>
+        <p>Envíanos tus tickets detallados y te responderemos a la brevedad.</p>
+        <a class="channel-detail" href="mailto:developers72@outlook.com">developers72@outlook.com ·</a>
+      </article>
+    </section>
+
+    <!-- Formulario y espacio vacío reservado para imagen/mapa -->
+    <section class="contact-lower" aria-label="Formulario de contacto y ubicación">
+      <!-- Formulario visual; listo para conectarse posteriormente a un servicio -->
+      <form id="contact-form" class="contact-form panel">
+        <h2>Envíanos un mensaje rápido</h2>
+
+        <!-- Campo de nombre completo -->
+        <div class="form-field">
+          <label for="name">Nombre completo</label>
+          <input id="name" name="name" type="text" placeholder="" autocomplete="name" required>
+        </div>
+
+        <!-- Campo de correo electrónico -->
+        <div class="form-field">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="mateo@ejemplo.com" autocomplete="email" required>
+        </div>
+        <!-- Campo telefono  -->
+         <div class="form-field">
+          <label for="phone">Número de teléfono</label>
+           <span class="input-line"></span>
+            <input type="tel" id="phone" name="phone" placeholder="55-xxxx-xxxx" autocomplete="tel-national" maxlength="10">
+        </div>
+        
+
+        <!-- Campo de mensaje -->
+        <div class="form-field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4" placeholder="Describe tu consulta..." required></textarea>
+        </div>
+
+        <!-- Botón de envío del formulario -->
+        <button class="send-button" type="submit">Enviar mensaje</button>
+        <div id="status" class="status"></div>
+        
+      </form>
+
+      <!-- Marco vacío: insertar aquí un mapa o imagen cuando se cuente con el recurso -->
+      <div class="contact-image-space" role="img" aria-label="Espacio reservado para imagen o mapa"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER: mantiene la estructura y columnas del pie global del proyecto -->
+     <div id="footerContainer"></div>
+    <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Tu JavaScript -->
+  
+  <!--script src="./JS/validaciones.js"></script-->
+
+  <!-- JavaScript de Bootstrap compartido con las demás páginas -->
+
+  <!--contacto.js-->
+  <script src="../JS/main.js"></script>
+  <script src="../JS/emailjs.js"></script>
+ 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
