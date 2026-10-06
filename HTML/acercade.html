@@ -17,35 +17,13 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <!-- Hoja CSS unificada para Inicio y Acerca de nosotros -->
-  <link rel="stylesheet" href="./CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 
 <body>
 
   <!-- Navegación compartida; logotipo y avatar son espacios reservados -->
-  <header class="site-header">
-    <nav class="nav-shell" aria-label="Navegación principal">
-      <a class="brand d-inline-flex align-items-center" href="index.html" aria-label="Loop, inicio"> <img
-          src="./images/logo/logo.png" alt="" class="logo" aria-hidden="true"><span>Loop</span></a>
-      <div class="nav-links">
-        <a class="nav-link" href="index.html">Inicio</a>
-        <a class="nav-link" href="#explorar">Explorar</a>
-        <a class="nav-link" href="#amigos">Amigos</a>
-        <a class="nav-link" href="#mensajes">Mensajes</a>
-        <a class="nav-link" href="acercade.html">Acerca de </a>
-        <a class="nav-link" href="contactanos.html">Contáctanos</a>
-      </div>
-      <div class="nav-actions">
-        <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Buscar..."
-            aria-label="Buscar"></label>
-        <button class="avatar avatar-small" type="button" aria-label="Abrir perfil"><span
-            class="image-placeholder">Foto</span></button>
-        <button class="chevron" type="button" aria-label="Abrir menú de perfil">⌄</button>
-      </div>
-      <button class="menu-toggle" type="button" aria-label="Abrir navegación">☰</button>
-    </nav>
-  </header>
-
+ <div id="menuContainer"></div>
 
 
 
@@ -73,7 +51,7 @@
               </div>
 
               <div class="about-image-placeholder imgVision" role="img">
-                <img src="./images/nosotros/vision.jpeg" alt="Imagen relacionada con la visión de Loop">
+                <img src="../images/nosotros/vision.jpeg" alt="Imagen relacionada con la visión de Loop">
               </div>
 
             </div>
@@ -94,7 +72,7 @@
                 <div class="value-tags"><span>LATENCIA CERO</span><span>PRIVACIDAD ENCRIPTADA</span></div>
               </div>
               <div class="about-image-placeholder">
-                <img src="./images/nosotros/codeInGlasses.jpg" alt="Desarrollador trabajando frente a una computadora">
+                <img src="../images/nosotros/codeInGlasses.jpg" alt="Desarrollador trabajando frente a una computadora">
               </div>
             </div>
           </article>
@@ -182,7 +160,7 @@
           <!-- Tarjeta de Efraín -->
           <article class="team-card panel">
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/efrain.jpg" alt="Fotografía de Efraín Sagols">
+              <img src="../images/nosotros/efrain.jpg" alt="Fotografía de Efraín Sagols">
             </div>
 
             <div class="team-description">
@@ -207,7 +185,7 @@
           </article>
           <article class="team-card panel">
             <div class="team-photo-placeholder foto-angel-marco">
-              <img src="./images/nosotros/angel.png" alt="Fotografía de Ángel Ochoa" class="foto-angel">
+              <img src="../images/nosotros/angel.png" alt="Fotografía de Ángel Ochoa" class="foto-angel">
             </div>
             <div class="team-description">
               <p>
@@ -229,7 +207,7 @@
           <article class="team-card panel">
 
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/angelica.jpeg" alt="Fotografía de Angélica">
+              <img src="../images/nosotros/angelica.jpeg" alt="Fotografía de Angélica">
             </div>
             <div class="team-description">
               <p>
@@ -250,7 +228,7 @@
           </article>
           <article class="team-card panel">
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/karen.jpeg" alt="Fotografía de Karen López">
+              <img src="../images/nosotros/karen.jpeg" alt="Fotografía de Karen López">
             </div>
             <div class="team-description">
               <p>
@@ -270,7 +248,7 @@
           </article>
           <article class="team-card panel">
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/alvaro.jpeg" alt="Fotografía de Álvaro Terrones">
+              <img src="../images/nosotros/alvaro.jpeg" alt="Fotografía de Álvaro Terrones">
             </div>
             <div class="team-description">
               <p>
@@ -291,7 +269,7 @@
 
           <article class="team-card panel">
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/SelenePhoto.jpg" alt="Fotografía de Selene Kanagusico">
+              <img src="../images/nosotros/SelenePhoto.jpg" alt="Fotografía de Selene Kanagusico">
             </div>
             <div class="team-description">
               <p>
@@ -316,7 +294,7 @@
 
             <!-- FOTO DEL INTEGRANTE -->
             <div class="team-photo-placeholder">
-              <img src="./images/nosotros/victor.jpg" alt="Fotografía de Víctor Manuel Lázaro Bravo">
+              <img src="../images/nosotros/victor.jpg" alt="Fotografía de Víctor Manuel Lázaro Bravo">
             </div>
 
             <!-- DESCRIPCIÓN Y REDES SOCIALES -->
@@ -361,38 +339,14 @@
   </main>
 
   <!-- Pie compartido con Inicio y Contáctanos -->
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-about"><a class="brand footer-brand" href="index.html"> <img src="./images/logo/logo.png"
-            alt="" class="logo" aria-hidden="true"><span>Loop</span></a>
-        <p>La plataforma de networking premium diseñada<br>por y para desarrolladores e ingenieros de<br>software.
-          Conexión directa y análisis avanzados<br>sin ruido intrusivo.</p>
-      </div>
-      <div class="footer-column">
-        <h2>Plataforma</h2><a href="#explorar">Explorar Red</a><a href="#premium">Loop Premium</a><a
-          href="#empleos">Empleos Tech</a>
-      </div>
-      <div class="footer-column">
-        <h2>Compañía</h2><a href="./acercade.html">Nosotros</a><a href="#seguridad">Seguridad</a><a
-          href="./contactanos.html">Contacto</a>
-      </div>
-      <div class="footer-column">
-        <h2>Recursos</h2><a href="#blog">Blog Técnico</a><a href="#ayuda">Centro de Ayuda</a><a href="#api">API
-          Developer</a>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© 2026 Loop Technology Inc. Todos los derechos reservados.</span>
-      <div><a href="#privacidad">Privacidad</a><a href="#terminos">Términos de servicio</a><a
-          href="#cookies">Cookies</a></div>
-    </div>
-  </footer>
+   <div id="footerContainerCarpetHTML"></div>
 
   <!-- Bootstrap para el carrusel institucional; controlador del carrusel del equipo -->
+
+  <script src="../JS/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
-  <script src="./JS/main.js"></script>
-
 </body>
 
 </html>
