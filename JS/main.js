@@ -1,5 +1,7 @@
-// Función que carga Navbar y Footer 
 
+// main.js
+
+// Función que carga Navbar y Footer 
 
 function cargarComponente(rutaArchivo, idContainer) {
   fetch(rutaArchivo)
@@ -21,10 +23,9 @@ function cargarComponente(rutaArchivo, idContainer) {
 
 // Ejecutar cuando el HTML base esté listo
 document.addEventListener("DOMContentLoaded", () => {
-  cargarComponente("../html/menu.html", "menuContainer"); 
- cargarComponente("../html/footer.html", "footerContainer");
-});
 
+  cargarComponente("menu.html", "menuContainer");
+  cargarComponente("footer.html", "footerContainer");
 
 
 //Funcion del carrusel
@@ -80,3 +81,4 @@ function inicializarCarruselEquipo() {
 }
 
 document.addEventListener("DOMContentLoaded", inicializarCarruselEquipo);
+
