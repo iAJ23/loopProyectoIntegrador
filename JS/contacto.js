@@ -18,13 +18,52 @@ form.addEventListener("submit", function (e) {
   const message = document.getElementById("message").value.trim();
 
   // 2. Validaciones
-  let errores = [];
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const errores = [];
+        const nombre = name.trim();
+        const correo = email.trim();
+        const telefono = phone.trim();
+        const mensaje = message.trim();
 
-  if (name.length < 2) errores.push("Nombre mínimo 2 letras");
-  if (!regexEmail.test(email)) errores.push("Email no válido");
-  if (phone && !/^\d{10}$/.test(phone)) errores.push("Teléfono debe tener 10 dígitos");
-  if (message.length < 4) errores.push("Mensaje mínimo 4 caracteres");
+
+        const regexNombre = /^[\p{L}\s'-]+$/u;
+        const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+        const regexTelefono = /^\d{10}$/;
+
+        // Nombre
+        if (!nombre) {
+                    errores.push('El nombre es obligatorio');
+            } else if (nombre.length <= 3) {
+                 errores.push('El nombre debe tener más de 3 caracteres');
+             } else if (!regexNombre.test(nombre)) {
+                  errores.push('El nombre solo puede contener letras');
+        }
+
+        // Email
+        if (!correo) {
+            errores.push('El email es obligatorio');
+             } else if (correo.length > 254) {
+                 errores.push('El email es demasiado largo');
+             } else if (!regexEmail.test(correo)) {
+             errores.push('Ingresa un email válido');
+        }
+
+        // Teléfono
+         if (telefono) {
+            if (!regexTelefono.test(telefono)) {
+            errores.push('El teléfono debe tener exactamente 10 dígitos');
+            } else if (/^(\d)\1{9}$/.test(telefono)) {
+             errores.push('El teléfono no es válido');
+            }
+        }
+
+        // Mensaje
+        if (!mensaje) {
+                 errores.push('El mensaje es obligatorio');
+             } else if (mensaje.length < 4) {
+                  errores.push('El mensaje debe tener al menos 4 caracteres');
+             } else if (mensaje.length > 1000) {
+             errores.push('El mensaje no puede superar los 1000 caracteres');
+        }
 
   // 3. Si hay errores, no se envía nada
   if (errores.length > 0) {
