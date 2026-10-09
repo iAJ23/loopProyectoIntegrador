@@ -80,3 +80,46 @@ function inicializarCarruselEquipo() {
 
 document.addEventListener("DOMContentLoaded", inicializarCarruselEquipo);
 
+
+
+import { publicaciones } from './publicaciones.js';
+
+/**
+ * Método para renderizar las publicaciones en el DOM
+ */
+
+function mostrarPublicaciones() {
+    const contenedor = document.getElementById("feed-container");
+    
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    publicaciones.forEach(pub => {
+        const tarjeta = document.createElement("div");
+        tarjeta.classList.add("post-card");
+
+        tarjeta.innerHTML = `
+
+          <article class="post panel">
+        <header class="post-header">
+          <div class="avatar"><span class="image-placeholder">Foto</span></div>
+          <div class="post-author">
+            <h2>${pub.displayName}</h2>
+            <p class="muted">${pub.remuDescription}</p>
+          </div>
+          <button class="more" aria-label="Más opciones">•••</button>
+        </header>
+        <p class="post-copy">${pub.text}</p>
+        <footer class="post-actions">
+          <button class="like"><span aria-hidden="true">♡</span> ${pub.likes} </button>
+          <button class="comments"><span aria-hidden="true">▢</span> 12 comentarios</button>
+        </footer>
+      </article>
+        `;
+
+        contenedor.appendChild(tarjeta);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", mostrarPublicaciones);
