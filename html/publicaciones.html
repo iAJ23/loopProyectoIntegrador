@@ -63,14 +63,58 @@
     <!-- COLUMNA CENTRAL - FEED DE PUBLICACIONES -->
     <section class="feed" aria-label="Publicaciones">
       
-      <!-- Composición de nueva publicación -->
-      <form class="composer panel" action="#" method="get">
-        <div class="avatar avatar-mini"><span class="image-placeholder">Foto</span></div>
+      <!-- Formulario principal para publicar -->
+<form class="composer panel" id="postForm" action="#" method="get">
+    <div class="d-flex row">
+      <div class="d-flex">
+        <div class="avatar avatar-mini">
+          <span class="image-placeholder">Foto</span>
+        </div>
+        <div>
+          <label class="composer-input">
+            <span class="visually-hidden">Nombre de Usuario</span>
+            <input
+              type="text"
+              id="displayName"
+              placeholder="Nombre de Usuario"
+              autocomplete="off"
+            >
+          </label>
+          <label class="composer-input">
+            <span class="visually-hidden">Descripción de Usuario</span>
+            <input
+              type="text"
+              id="remuDescription"
+              placeholder="Descripción de Usuario"
+              autocomplete="off"
+            >
+          </label>
+        </div>
+      </div>
+
+      <div class="d-flex">
         <label class="composer-input">
           <span class="visually-hidden">Comparte una publicación</span>
-          <input type="text" placeholder="¿Qué estás pensando o creando hoy, Mateo?">
+          <input
+            type="text"
+            id="text"
+            placeholder="¿Qué estás pensando o creando hoy, Mateo?"
+            autocomplete="off"
+          >
         </label>
-      </form>
+        <button type="submit" class="primary-button btn btn-primary">Publicar</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Contenedor donde se insertarán las publicaciones -->
+  <div id="postsContainer"></div>
+
+<!-- Contenedor del feed -->
+<section id="feed" class="feed"></section>
+
+<!-- Contenedor donde se renderizarán las publicaciones -->
+<section id="feed" class="feed"></section>
 
       <!-- Publicación 1 - Elena Rostova -->
       <!-- Contenedor donde se cargarán las publicaciones -->
