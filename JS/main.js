@@ -179,7 +179,12 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
       <div class="post-author">
         <h2>${safeName}</h2>
       </div>
-      <button class="more" aria-label="Más opciones">•••</button>
+      <button class="more dropdown-menu-dark" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Más opciones">•••</button>
+       <ul class="dropdown-menu dropdown-menu-dark">
+    <li><a class="dropdown-item" href="#">Editar</a></li>
+    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+    <li><a class="dropdown-item" href="#">Compartir</a></li>
+  </ul>
     </header>
     <p class="post-copy">${safeText}</p>
     ${safeLabel ? `<p class="post-copy post-label">#${safeLabel}</p>` : ''}
@@ -198,7 +203,7 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
     currentLikes++;
     countSpan.textContent = currentLikes;
     this.querySelector('span[aria-hidden="true"]').textContent = '♥';
-    this.style.color = '#e0245e';
+    this.style.color = '#c2ff42';
   });
 
   // 5. Insertar al principio del contenedor
