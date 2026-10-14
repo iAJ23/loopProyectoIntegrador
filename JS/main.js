@@ -123,3 +123,62 @@ function mostrarPublicaciones() {
 }
 
 document.addEventListener("DOMContentLoaded", mostrarPublicaciones);
+
+
+/*****Agregar Publicaciones ******/
+document.getElementById('postForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // 1. Obtener los valores del formulario
+  const displayName = document.getElementById('displayName').value.trim();
+  const remuDescription = document.getElementById('remuDescription').value.trim() || "Miembro de la comunidad";
+  const text = document.getElementById('text').value.trim();
+
+  // Validación mínima
+  if (!displayName || !text) {
+    alert('Por favor completa tu nombre y tu publicación.');
+    return;
+  }
+
+  // 2. Crear el <article> con el diseño
+  const postArticle = document.createElement('article');
+  postArticle.className = 'post panel';
+
+  const initial = displayName.charAt(0).toUpperCase();
+
+  postArticle.innerHTML = `
+    <header class="post-header">
+      <div class="avatar avatar-mini">
+        <span class="image-placeholder">${initial}</span>
+      </div>
+      <div class="post-author">
+        <h2>${displayName}</h2>
+        <p class="muted">${remuDescription}</p>
+      </div>
+      <button class="more" aria-label="Más opciones">•••</button>
+    </header>
+    <p class="post-copy">${text}</p>
+    <footer class="post-actions">
+      <button class="like"><span aria-hidden="true">♡</span> <span class="likes-count">0</span></button>
+      <button class="comments"><span aria-hidden="true">▢</span> 0 comentarios</button>
+    </footer>
+  `;
+
+  // 3. Funcionalidad del botón like
+  const likeBtn = postArticle.querySelector('.like');
+  likeBtn.addEventListener('click', function() {
+    const countSpan = this.querySelector('.likes-count');
+    let currentLikes = parseInt(countSpan.textContent) || 0;
+    currentLikes++;
+    countSpan.textContent = currentLikes;
+    this.querySelector('span[aria-hidden="true"]').textContent = '♥';
+    this.style.color = '#e0245e';
+  });
+
+  // 4. Insertar al principio del contenedor
+  const container = document.getElementById('postsContainer');
+  container.prepend(postArticle);
+
+  // 5. Limpiar el formulario
+  this.reset();
+});
