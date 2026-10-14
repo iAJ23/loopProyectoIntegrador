@@ -353,3 +353,23 @@ button {
   height: 40px;
   object-fit: contain;
 }
+
+/*Bottum Post*/
+.required-mark {
+  color: var(--lime);
+}
+
+.publish-button {
+  min-height: 48px;
+  color: #0b0b14;
+  background: var(--lime);
+  border: 0;
+  border-radius: 999px;
+  font: 700 14px var(--heading-font);
+}
+
+.publish-button:hover,
+.publish-button:focus-visible {
+  color: #0b0b14;
+  background: #c2ff42;
+}
