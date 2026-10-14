@@ -281,3 +281,15 @@ h2, p {
   .premium-card { grid-column: auto; order: 2; } /* Tercero la tarjeta premium */
   .post, .profile-card, .premium-card { border-radius: 12px; } 
 }
+/***Button Post****/
+.button-post { 
+  padding: 13px; 
+  border-color: var(--lime); /* Borde destacado morado */
+  color: var(--white);
+  background: var(--lime);
+}
+.publish-button:hover,
+.publish-button:focus-visible {
+  color: #0b0b14;
+  background: #c2ff42;
+}

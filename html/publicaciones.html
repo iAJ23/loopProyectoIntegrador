@@ -66,43 +66,45 @@
       <!-- Formulario principal para publicar -->
 <form class="composer panel" id="postForm" action="#" method="get">
     <div class="d-flex row">
-      <div class="d-flex">
-        <div class="avatar avatar-mini">
-          <span class="image-placeholder">Foto</span>
-        </div>
-        <div>
+      <div class="d-flex row justify-content-center m-auto my-2">
+          <p class="tittle-Add-Post">Crear publicación</p>
+          
           <label class="composer-input">
             <span class="visually-hidden">Nombre de Usuario</span>
             <input
               type="text"
               id="displayName"
-              placeholder="Nombre de Usuario"
+              placeholder="Autor: usuario actual"
               autocomplete="off"
             >
           </label>
-          <label class="composer-input">
-            <span class="visually-hidden">Descripción de Usuario</span>
-            <input
-              type="text"
-              id="remuDescription"
-              placeholder="Descripción de Usuario"
-              autocomplete="off"
-            >
-          </label>
-        </div>
-      </div>
-
-      <div class="d-flex">
-        <label class="composer-input">
+          <p class="d-flex row justify-content-start m-auto my-2">¿Que quieres compartir?</p>
+          
+        <label class="composer-input ">
           <span class="visually-hidden">Comparte una publicación</span>
           <input
             type="text"
             id="text"
-            placeholder="¿Qué estás pensando o creando hoy, Mateo?"
+            placeholder="¿Qué estás pensando o creando hoy?"
             autocomplete="off"
           >
         </label>
-        <button type="submit" class="primary-button btn btn-primary">Publicar</button>
+
+        <p class="d-flex row justify-content-start m-auto my-2">Etiquetas</p>
+
+         <label class="composer-input ">
+          <span class="visually-hidden">Agrega una etiqueta</span>
+          <input
+            type="text"
+            id="label-post"
+            placeholder="Ej. tecnologia, comunidad, ideas"
+            autocomplete="off"
+          >
+        </label>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class=" publish-button button-post primary-button btn btn-primary w-25 mt-3">Publicar</button>
+        </div>
+        </div>
       </div>
     </div>
   </form>
@@ -118,9 +120,9 @@
 
       <!-- Publicación 1 - Elena Rostova -->
       <!-- Contenedor donde se cargarán las publicaciones -->
-    <main id="feed-container" class="feed">
+    <div id="feed-container" class="feed">
         <!-- Las publicaciones se inyectarán aquí mediante JS -->
-    </main>
+    </div>
 
     <!-- COLUMNA DERECHA - CARD PREMIUM -->
     <aside class="premium-card panel">

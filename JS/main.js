@@ -131,8 +131,8 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
 
   // 1. Obtener los valores del formulario
   const displayName = document.getElementById('displayName').value.trim();
-  const remuDescription = document.getElementById('remuDescription').value.trim() || "Miembro de la comunidad";
   const text = document.getElementById('text').value.trim();
+  const labelPost = document.getElementById('label-post').value.trim();
 
   // Validación mínima
   if (!displayName || !text) {
@@ -146,25 +146,51 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
 
   const initial = displayName.charAt(0).toUpperCase();
 
+  // Escapar HTML para evitar inyección y errores de render
+  const escapeHTML = (str) =>
+    str.replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[m]));
+
+  const safeName = escapeHTML(displayName);
+  const safeText = escapeHTML(text);
+  const safeLabel = escapeHTML(labelPost);
+
+  // 3. Generar la fecha de publicación formateada
+  const fecha = new Date();
+  const opcionesFecha = {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  const fechaFormateada = fecha.toLocaleString('es-MX', opcionesFecha);
+
   postArticle.innerHTML = `
     <header class="post-header">
       <div class="avatar avatar-mini">
         <span class="image-placeholder">${initial}</span>
       </div>
       <div class="post-author">
-        <h2>${displayName}</h2>
-        <p class="muted">${remuDescription}</p>
+        <h2>${safeName}</h2>
       </div>
       <button class="more" aria-label="Más opciones">•••</button>
     </header>
-    <p class="post-copy">${text}</p>
+    <p class="post-copy">${safeText}</p>
+    ${safeLabel ? `<p class="post-copy post-label">#${safeLabel}</p>` : ''}
     <footer class="post-actions">
       <button class="like"><span aria-hidden="true">♡</span> <span class="likes-count">0</span></button>
       <button class="comments"><span aria-hidden="true">▢</span> 0 comentarios</button>
+      <span class="post-date fs-14 text-secondary" title="${fecha.toISOString()}">${fechaFormateada}</span>
     </footer>
   `;
 
-  // 3. Funcionalidad del botón like
+  // 4. Funcionalidad del botón like
   const likeBtn = postArticle.querySelector('.like');
   likeBtn.addEventListener('click', function() {
     const countSpan = this.querySelector('.likes-count');
@@ -175,10 +201,10 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
     this.style.color = '#e0245e';
   });
 
-  // 4. Insertar al principio del contenedor
+  // 5. Insertar al principio del contenedor
   const container = document.getElementById('postsContainer');
   container.prepend(postArticle);
 
-  // 5. Limpiar el formulario
+  // 6. Limpiar el formulario
   this.reset();
 });
