@@ -1,5 +1,6 @@
 
-/***** VALIDACIONES DE PUBLICACIONES *****/
+
+/***** VALIDACIONES CON ALERTAS PERSONALIZADAS *****/
 
 export function validarPublicacion({
   postForm,
