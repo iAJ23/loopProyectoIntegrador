@@ -293,3 +293,34 @@ h2, p {
   color: #0b0b14;
   background: #c2ff42;
 }
+
+/* Alertas de validación */
+.swal-validation {
+  border: 1px solid #343943 !important;
+  border-left: 4px solid #c2ff42 !important;
+  border-radius: 14px !important;
+  padding: 16px !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35) !important;
+  font-family: inherit;
+}
+
+.swal-validation .swal2-title {
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+.swal-validation .swal2-html-container {
+  color: #b8bdc7 !important;
+  font-size: 14px !important;
+}
+
+.swal-validation .swal2-timer-progress-bar {
+  background: #c2ff42 !important;
+}
+
+/* Resaltar el campo que necesita corrección */
+.is-invalid {
+  border-color: #ff5c70 !important;
+  box-shadow: 0 0 0 3px rgba(255, 92, 112, 0.12) !important;
+}

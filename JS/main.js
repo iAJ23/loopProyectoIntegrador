@@ -125,91 +125,13 @@ function mostrarPublicaciones() {
 document.addEventListener("DOMContentLoaded", mostrarPublicaciones);
 
 
-/*****Agregar Publicaciones ******/
-document.getElementById('postForm').addEventListener('submit', function(event) {
-  event.preventDefault();
 
-  // 1. Obtener los valores del formulario
-  const displayName = document.getElementById('displayName').value.trim();
-  const text = document.getElementById('text').value.trim();
-  const labelPost = document.getElementById('label-post').value.trim();
+///Validar la publicaion y crear el nuevo post
+import { initPosts } from './posts.js';
 
-  // Validación mínima
-  if (!displayName || !text) {
-    alert('Por favor completa tu nombre y tu publicación.');
-    return;
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  // Inicializar publicaciones
+  initPosts();
 
-  // 2. Crear el <article> con el diseño
-  const postArticle = document.createElement('article');
-  postArticle.className = 'post panel';
-
-  const initial = displayName.charAt(0).toUpperCase();
-
-  // Escapar HTML para evitar inyección y errores de render
-  const escapeHTML = (str) =>
-    str.replace(/[&<>"']/g, (m) => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;'
-    }[m]));
-
-  const safeName = escapeHTML(displayName);
-  const safeText = escapeHTML(text);
-  const safeLabel = escapeHTML(labelPost);
-
-  // 3. Generar la fecha de publicación formateada
-  const fecha = new Date();
-  const opcionesFecha = {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  };
-  const fechaFormateada = fecha.toLocaleString('es-MX', opcionesFecha);
-
-  postArticle.innerHTML = `
-    <header class="post-header">
-      <div class="avatar avatar-mini">
-        <span class="image-placeholder">${initial}</span>
-      </div>
-      <div class="post-author">
-        <h2>${safeName}</h2>
-      </div>
-      <button class="more dropdown-menu-dark" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Más opciones">•••</button>
-       <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item" href="#">Editar</a></li>
-    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-    <li><a class="dropdown-item" href="#">Compartir</a></li>
-  </ul>
-    </header>
-    <p class="post-copy">${safeText}</p>
-    ${safeLabel ? `<p class="post-copy post-label">#${safeLabel}</p>` : ''}
-    <footer class="post-actions">
-      <button class="like"><span aria-hidden="true">♡</span> <span class="likes-count">0</span></button>
-      <button class="comments"><span aria-hidden="true">▢</span> 0 comentarios</button>
-      <span class="post-date fs-14 text-secondary" title="${fecha.toISOString()}">${fechaFormateada}</span>
-    </footer>
-  `;
-
-  // 4. Funcionalidad del botón like
-  const likeBtn = postArticle.querySelector('.like');
-  likeBtn.addEventListener('click', function() {
-    const countSpan = this.querySelector('.likes-count');
-    let currentLikes = parseInt(countSpan.textContent) || 0;
-    currentLikes++;
-    countSpan.textContent = currentLikes;
-    this.querySelector('span[aria-hidden="true"]').textContent = '♥';
-    this.style.color = '#c2ff42';
-  });
-
-  // 5. Insertar al principio del contenedor
-  const container = document.getElementById('postsContainer');
-  container.prepend(postArticle);
-
-  // 6. Limpiar el formulario
-  this.reset();
+  console.log('Proyecto inicializado correctamente.');
 });
