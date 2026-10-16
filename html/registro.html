@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b14">
+  <title>Loop — Registro</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/global.css">
+  <link rel="stylesheet" href="../CSS/registro.css">
+</head>
+<body>
+  <div id="menuContainer"></div>
+
+  <main class="register-page">
+    <section class="register-card panel" aria-labelledby="register-title">
+      <p class="register-eyebrow">COMUNIDAD LOOP</p>
+      <h1 id="register-title">Crear cuenta</h1>
+      <p class="register-intro">Únete a una comunidad de desarrolladores e ingenieros.</p>
+
+      <form class="register-form">
+        <div class="register-field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="given-name">
+        </div>
+        <div class="register-field">
+          <label for="apellido">Apellido</label>
+          <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" autocomplete="family-name">
+        </div>
+        <div class="register-field">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="Nombre de usuario" autocomplete="username">
+        </div>
+        <div class="register-field">
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" placeholder="tu@correo.com" autocomplete="email">
+        </div>
+        <div class="register-field">
+          <label for="contrasena">Contraseña</label>
+          <input id="contrasena" name="contrasena" type="password" placeholder="Crea una contraseña" autocomplete="new-password">
+        </div>
+        <div class="register-field">
+          <label for="confirmar-contrasena">Confirmar contraseña</label>
+          <input id="confirmar-contrasena" name="confirmar-contrasena" type="password" placeholder="Escribe nuevamente tu contraseña" autocomplete="new-password">
+        </div>
+        <button class="register-button" type="button">Crear cuenta</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="footerContainer"></div>
+
+  <script type="module" src="../JS/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyfwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
