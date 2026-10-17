@@ -81,20 +81,75 @@ function validarDatosPersonales() {
 // Un único listener para el evento submit
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  alertContainer.innerHTML = ""; // Limpiar alertas previas
 
-  // 1. Juntar los errores de cada validación
+  // Juntar los errores de cada validación
   const errores = [];
   errores.push(...validarDatosPersonales());
-  // errores.push(...validarContrasenas());   // <- KAREN aquí se agrega tu parte compañera 
 
-  // 2. Si hay errores, se muestran en una alerta y no se envía nada
+  // Capturar los valores usando los IDs exactos de tu HTML
+  const contrasena = document.getElementById("contrasena").value;
+  const confirmar = document.getElementById("confirmar-contrasena").value;
+
+  // Contraseña
+  if (!contrasena) {
+    errores.push('La contraseña es obligatoria');
+  } else if (contrasena.length < 8) {
+    errores.push('La contraseña debe tener al menos 8 caracteres');
+  } else if (contrasena.length > 20) {
+    errores.push('La contraseña no puede superar los 20 caracteres');
+  } else if (/\s/.test(contrasena)) {
+    errores.push('La contraseña no puede contener espacios');
+  } else if (!regexContrasena.test(contrasena)) {
+    errores.push('La contraseña solo puede contener letras, números y los símbolos ! @ # \$ % ^ & * . _ -');
+  } else {
+    if (!/[A-Z]/.test(contrasena)) {
+      errores.push('La contraseña debe incluir al menos una mayúscula');
+    }
+    if (!/[a-z]/.test(contrasena)) {
+      errores.push('La contraseña debe incluir al menos una minúscula');
+    }
+    if (!/\d/.test(contrasena)) {
+      errores.push('La contraseña debe incluir al menos un número');
+    }
+    if (!/[!@#\$%^&*._-]/.test(contrasena)) {
+      errores.push('La contraseña debe incluir al menos un símbolo (! @ # \$ % ^ & * . _ -)');
+    }
+  }
+
+  // Confirmar contraseña
+  if (!confirmar) {
+    errores.push('Debes confirmar tu contraseña');
+  } else if (contrasena !== confirmar) {
+    errores.push('Las contraseñas no coinciden');
+  }
+
+  // Si hay errores, se muestran en una alerta y no se envía nada
   if (errores.length > 0) {
     const lista = errores.map(error => `<li>${error}</li>`).join("");
     mostrarAlerta(`<strong>Revisa los siguientes campos:</strong><ul class="mb-0">${lista}</ul>`, "danger");
     return; // Detiene la ejecución aquí
   }
 
-  // 3. Karen: Aqui deberias agregar el objeto JSON una ves que pasen las validaciones
+  // Si la validación pasó, se crea el objeto del usuario con los IDs del HTML
+  const usuarioNuevo = {
+    nombre: document.getElementById("nombre").value.trim(),
+    apellido: document.getElementById("apellido").value.trim(),
+    username: document.getElementById("username").value.trim(),
+    correo: document.getElementById("correo").value.trim(),
+    telefono: document.getElementById("telefono").value.trim(),
+    password: contrasena
+  };
+
+  console.log(JSON.stringify(usuarioNuevo, null, 2));
+  
+  // Mostrar éxito
   mostrarAlerta("✓ Registro exitoso", "success");
+  
+  if (mensajeEstado) {
+    mensajeEstado.textContent = "✓ Registro exitoso";
+    mensajeEstado.style.color = "green";
+  }
+  
   form.reset();
 });
