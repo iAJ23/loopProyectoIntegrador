@@ -2,47 +2,38 @@
 <html lang="es">
 
 <head>
-    <!-- METADATOS Y CONFIGURACIÓN DEL DOCUMENTO -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0b0b14">
-    <title>Loop — Inicio</title>
+  <!-- METADATOS Y CONFIGURACIÓN DEL DOCUMENTO -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b14">
+  <title>Loop — Publicaciones</title>
 
-    <!-- LIBRERÍAS EXTERNAS (Bootstrap y Google Fonts) -->
-    <!-- Bootstrap 5.3.8 - Framework CSS para diseño responsivo -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- LIBRERÍAS EXTERNAS (Bootstrap y Google Fonts) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- Google Fonts - Tipografía personalizada -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
 
-
-    <!-- ============================================
-       HOJAS DE ESTILO PERSONALIZADAS
-       ============================================ -->
-
-     <link rel="stylesheet" href="../CSS/global.css">
-  <!-- Estilos específicos de Misión, Visión y Equipo -->
-   <link rel="stylesheet" href="../CSS/home.css">
-
+  <!-- HOJAS DE ESTILO PERSONALIZADAS -->
+  <link rel="stylesheet" href="../CSS/global.css">
+  <link rel="stylesheet" href="../CSS/home.css">
 </head>
 
-<!-- CUERPO DEL DOCUMENTO -->
 <body>
 
   <!-- ENCABEZADO / BARRA DE NAVEGACIÓN -->
-   <div id="menuContainer"></div>
+  <div id="menuContainer"></div>
+
   <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
   <main class="page-layout" id="inicio">
-    
+
     <!-- COLUMNA IZQUIERDA - PERFIL DE USUARIO -->
     <aside class="profile-card panel" aria-label="Resumen del perfil">
       <div class="profile-heading">
-        <!-- Avatar y datos del usuario -->
         <div class="avatar"><span class="image-placeholder">Foto</span></div>
         <div>
           <div class="name-line">
@@ -52,8 +43,7 @@
           <p class="muted">Lead AI Architect en Loop</p>
         </div>
       </div>
-      
-      <!-- Estadísticas del perfil -->
+
       <div class="stats">
         <div><span>Contactos de red</span><strong class="lime-text">1,420</strong></div>
         <div><span>Visualizaciones perfil</span><strong>423</strong></div>
@@ -62,124 +52,94 @@
 
     <!-- COLUMNA CENTRAL - FEED DE PUBLICACIONES -->
     <section class="feed" aria-label="Publicaciones">
-      
+
       <!-- Formulario principal para publicar -->
-<form class="composer panel" id="postForm" action="#" method="get">
-    <div class="d-flex row">
-      <div class="d-flex row justify-content-center m-auto my-2">
-          <p class="tittle-Add-Post mb-2">Crear publicación</p>
-          
-          <label class="composer-input">
-            <span class="visually-hidden">Nombre de Usuario</span>
-            <input
-              type="text"
-              id="displayName"
-              placeholder="Autor: usuario actual"
-              autocomplete="off"
-            >
-          </label>
-          <p class="d-flex row justify-content-start m-auto my-2">¿Que quieres compartir?</p>
-          
-        <label class="composer-input ">
-          <span class="visually-hidden">Comparte una publicación</span>
-          <input
-            type="text"
-            id="text"
-            placeholder="¿Qué estás pensando o creando hoy?"
-            autocomplete="off"
-          >
-        </label>
+      <form class="composer panel" id="postForm" action="#" method="get">
+        <div class="d-flex row">
+          <div class="d-flex row justify-content-center m-auto my-2">
+            <p class="tittle-Add-Post mb-2">Crear publicación</p>
 
-        <p class="d-flex row justify-content-start m-auto my-2">Etiquetas</p>
+            <label class="composer-input">
+              <span class="visually-hidden">Nombre de Usuario</span>
+              <input type="text" id="displayName" placeholder="Autor: usuario actual" autocomplete="off">
+            </label>
 
-         <label class="composer-input ">
-          <span class="visually-hidden">Agrega una etiqueta</span>
-          <input
-            type="text"
-            id="label-post"
-            placeholder="Ej. tecnologia, comunidad, ideas"
-            autocomplete="off"
-          >
-        </label>
-        <div class="d-flex justify-content-end">
-          <button type="submit" class=" publish-button button-post primary-button btn btn-primary w-25 mt-3">Publicar</button>
+            <p class="d-flex row justify-content-start m-auto my-2">¿Qué quieres compartir?</p>
+
+            <label class="composer-input">
+              <span class="visually-hidden">Comparte una publicación</span>
+              <input type="text" id="text" placeholder="¿Qué estás pensando o creando hoy?" autocomplete="off">
+            </label>
+
+            <p class="d-flex row justify-content-start m-auto my-2">Etiquetas</p>
+
+            <label class="composer-input">
+              <span class="visually-hidden">Agrega una etiqueta</span>
+              <input type="text" id="label-post" placeholder="Ej. tecnologia, comunidad, ideas" autocomplete="off">
+            </label>
+
+            <div class="d-flex justify-content-end">
+              <button type="submit"
+                class="publish-button button-post primary-button btn btn-primary w-25 mt-3">Publicar</button>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
-    </div>
-  </form>
+      </form>
 
+      <!-- 👇 Aquí se insertan las publicaciones NUEVAS creadas dinámicamente -->
+      <div id="postsContainer"></div>
 
-  <!-- Contenedor donde se insertarán las publicaciones -->
-  <div id="postsContainer"></div>
+      <!-- 👇 Aquí se insertan las publicaciones ESTÁTICAS del array -->
+      <div id="feed-container" class="feed"></div>
 
-<!-- Contenedor del feed -->
-<section id="feed" class="feed"></section>
-
-<!-- Contenedor donde se renderizarán las publicaciones -->
-<section id="feed" class="feed"></section>
-
-      <!-- Publicación 1 - Elena Rostova -->
-      <!-- Contenedor donde se cargarán las publicaciones -->
-    <div id="feed-container" class="feed">
-        <!-- Las publicaciones se inyectarán aquí mediante JS -->
-    </div>
+    </section>
 
     <!-- COLUMNA DERECHA - CARD PREMIUM -->
     <aside class="premium-card panel">
       <p class="eyebrow lime-text"><span class="status-dot"></span> MEMBRESÍA EXCLUSIVA</p>
       <h2>Impulsa tu red con Loop Premium</h2>
-      <p class="muted">Conéctate directamente con perfiles C-level, obtén análisis avanzados y destaca de forma prioritaria en los resultados de búsqueda.</p>
+      <p class="muted">Conéctate directamente con perfiles C-level, obtén análisis avanzados y destaca de forma
+        prioritaria en los resultados de búsqueda.</p>
       <a class="primary-button btn btn-primary w-100" href="#premium">Mejorar ahora</a>
     </aside>
+
   </main>
 
+  <!-- PIE DE PÁGINA / FOOTER -->
+  <div id="footerContainer"></div>
 
-  
+  <!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR -->
+  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content modal-delete-content">
 
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Eliminar publicación</h5>
+        </div>
 
-   <div id="feed-container" class="feed">
-        <!-- Las publicaciones se inyectarán aquí mediante JS -->
-  </div>
+        <div class="modal-body">
+          <p>¿Estás seguro de que quieres eliminar esta publicación? Esta acción no se puede deshacer.</p>
+        </div>
 
-<!-- ============================================
-       PIE DE PÁGINA / FOOTER
-       ============================================ -->
+        <div class="modal-footer border-0">
+          <button type="button" class="btn-cancelar-modal" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn-confirmar-eliminar" id="btnConfirmarEliminar">Eliminar</button>
+        </div>
 
-  <!-- Pie compartido con Inicio y Contáctanos -->
-   <div id="footerContainer"></div>
-
-
-  <!-- ============================================
-       SCRIPTS - Bootstrap JS
-       ============================================ -->
-       <!-- Bootstrap JS: necesario para el menú desplegable -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Modal de confirmación para eliminar -->
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm">
-    <div class="modal-content modal-delete-content">
-      
-      <div class="modal-header border-0">
-        <h5 class="modal-title">Eliminar publicación</h5>
       </div>
-      
-      <div class="modal-body">
-        <p>¿Estás seguro de que quieres eliminar esta publicación? Esta acción no se puede deshacer.</p>
-      </div>
-      
-      <div class="modal-footer border-0">
-        <button type="button" class="btn-cancelar-modal" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn-confirmar-eliminar" id="btnConfirmarEliminar">Eliminar</button>
-      </div>
-      
     </div>
   </div>
-</div>
-   <script type="module" src="../JS/main.js"></script>
+
+  <!-- SCRIPTS 
+       1. Bootstrap 
+       2. SweetAlert 
+       3. main.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-  </script>
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="../JS/main.js"></script>
+
 </body>
+
 </html>
