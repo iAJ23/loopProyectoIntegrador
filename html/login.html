@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b14">
+  <title>Loop — Iniciar Sesión</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/global.css">
+  <link rel="stylesheet" href="../CSS/registro.css"> <!-- O tu archivo CSS de login si lo tienen separado -->
+</head>
+
+<body>
+  <div id="menuContainer"></div>
+
+  <main class="register-page">
+    <section class="register-card panel" aria-labelledby="login-title">
+      <p class="register-eyebrow">COMUNIDAD LOOP</p>
+      <h1 id="login-title">Iniciar Sesión</h1>
+      <p class="register-intro">Accede a tu cuenta de desarrollador.</p>
+
+      <form class="register-form" id="login-form" novalidate>
+        <div class="register-field">
+          <label for="username">Username o Correo</label>
+          <input id="username" name="username" type="text" placeholder="Tu usuario o correo" autocomplete="username">
+        </div>
+
+        <div class="register-field">
+          <label for="contrasena">Contraseña</label>
+          <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" autocomplete="current-password">
+        </div>
+
+        <!-- Contenedor para mostrar mensajes de error o éxito con Bootstrap -->
+        <div id="alertContainer" class="mb-3"></div>
+
+        <button class="register-button" type="submit">Entrar</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="footerContainer"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="../JS/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+
+</html>

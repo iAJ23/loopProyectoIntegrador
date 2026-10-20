@@ -176,4 +176,4 @@ form.addEventListener("submit", function (e) {
   mostrarAlerta("✓ Registro exitoso", "success");
   form.reset();
 });
- }
+}

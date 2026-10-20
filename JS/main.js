@@ -1,7 +1,7 @@
 // main.js
 import { publicaciones } from './publicaciones.js';
 import { initPosts } from './posts.js';
-import {initSingUp} from './registro.js';
+import { initSingUp } from './registro.js';
 
 // CARGAR COMPONENTES (menú y footer)
 
@@ -110,8 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarPublicaciones();
 
   // 4. Inicializar el formulario de publicar
-  initPosts();
 
-   // 5. Inicializar el formulario de registro
-  initSingUp();
+  initPosts();
 });
