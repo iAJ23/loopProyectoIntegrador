@@ -1,3 +1,4 @@
+export function initSingUp() {
 // Referencias al formulario y al contenedor de alertas
 const form = document.getElementById("register-form");
 const alertContainer = document.getElementById("alertContainer");
@@ -153,3 +154,4 @@ form.addEventListener("submit", function (e) {
   
   form.reset();
 });
+}
