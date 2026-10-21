@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 3. Mostrar publicaciones estáticas
   mostrarPublicaciones();
-
+  
   // 4. Inicializar el formulario de publicar
   initPosts();
 
