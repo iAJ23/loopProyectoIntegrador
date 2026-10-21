@@ -110,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarPublicaciones();
 
   // 4. Inicializar el formulario de publicar
-
   initPosts();
+
+   // 5. Inicializar el formulario de registro
+  initSingUp();
 });
