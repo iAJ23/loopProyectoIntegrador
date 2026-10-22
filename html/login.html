@@ -15,34 +15,47 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../CSS/global.css">
-  <link rel="stylesheet" href="../CSS/registro.css"> <!-- O tu archivo CSS de login si lo tienen separado -->
+  <link rel="stylesheet" href="../CSS/registro.css">
+  <link rel="stylesheet" href="../CSS/login.css">
 </head>
 
 <body>
   <div id="menuContainer"></div>
 
-  <main class="register-page">
-    <section class="register-card panel" aria-labelledby="login-title">
-      <p class="register-eyebrow">COMUNIDAD LOOP</p>
-      <h1 id="login-title">Iniciar Sesión</h1>
-      <p class="register-intro">Accede a tu cuenta de desarrollador.</p>
+  <main class="login-layout">
+    <section class="login-visual" aria-labelledby="login-visual-title">
+      <img class="login-visual-background" src="../images/login/login-background.png" alt="" aria-hidden="true">
+      <div class="login-visual-card panel">
+        <p class="login-visual-badge">NETWORKING 2.0</p>
+        <h2 id="login-visual-title">Conéctate sin el ruido corporativo tradicional</h2>
+        <p>Loop reúne a los ingenieros, arquitectos de software y líderes tecnológicos más influyentes en una infraestructura optimizada para el intercambio de valor técnico real.</p>
+      </div>
+    </section>
 
-      <form class="register-form" id="login-form" novalidate>
-        <div class="register-field">
-          <label for="username">Username o Correo</label>
-          <input id="username" name="username" type="text" placeholder="Tu usuario o correo" autocomplete="username">
-        </div>
+    <section class="login-panel" aria-label="Formulario de inicio de sesión">
+      <section class="register-card panel" aria-labelledby="login-title">
+        <p class="register-eyebrow">COMUNIDAD LOOP</p>
+        <h1 id="login-title">Iniciar Sesión</h1>
+        <p class="register-intro">Accede a tu cuenta de desarrollador.</p>
 
-        <div class="register-field">
-          <label for="contrasena">Contraseña</label>
-          <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" autocomplete="current-password">
-        </div>
+        <form class="register-form" id="login-form" novalidate>
+          <div class="register-field">
+            <label for="username">Username o Correo</label>
+            <input id="username" name="username" type="text" placeholder="Tu usuario o correo" autocomplete="username">
+          </div>
 
-        <!-- Contenedor para mostrar mensajes de error o éxito con Bootstrap -->
-        <div id="alertContainer" class="mb-3"></div>
+          <div class="register-field">
+            <label for="contrasena">Contraseña</label>
+            <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" autocomplete="current-password">
+          </div>
 
-        <button class="register-button" type="submit">Entrar</button>
-      </form>
+          <!-- Contenedor para mostrar mensajes de error o éxito con Bootstrap -->
+          <div id="alertContainer" class="mb-3"></div>
+
+          <button class="register-button" type="submit">Entrar</button>
+        </form>
+        <p class="login-account-prompt">¿No tienes cuenta? <a href="./registro.html">Regístrate aquí</a></p>
+      </section>
     </section>
   </main>
 
