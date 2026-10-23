@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b14">
+  <title>Loop — Mi Perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/global.css">
+  <link rel="stylesheet" href="../CSS/home.css">
+  <link rel="stylesheet" href="../CSS/perfil.css">
+</head>
+<body>
+  <div id="menuContainer"></div>
+  <main class="profile-page" id="perfil">
+    <section class="profile-cover" aria-label="Portada del perfil">
+      <img src="../images/perfil/perfil.png" alt="" aria-hidden="true">
+    </section>
+    <section class="profile-summary" aria-labelledby="profileName">
+      <div class="profile-identity">
+        <div class="profile-image-space" id="im_profile" aria-label="Espacio reservado para la imagen de perfil"></div>
+       <div class="profile-heading">
+            <h1 id="profileName">Mateo Valencia</h1>
+
+            <p class="profile-occupation" id="occupation">
+              Lead AI Architect en Loop
+            </p>
+
+            <p class="profile-location">
+              San Francisco, California · 1,420 contactos
+            </p>
+
+            <div class="profile-skills">
+              <span>Skills / stack:</span>
+              <div id="skillsStack" aria-label="Skills y stack"></div>
+            </div>
+          </div>
+      </div>
+      <button class="profile-edit" type="button" id="editProfile">Editar perfil</button>
+    </section>
+    <div class="profile-content">
+      <section class="profile-about" aria-labelledby="biographyTitle">
+        <h2 id="biographyTitle">Sobre mí</h2>
+        <p id="biography">Apasionado por la inteligencia artificial aplicada y la creación de redes con baja latencia. Enfocado en optimizar flujos de datos en tiempo real y el desarrollo de arquitecturas de software sostenibles de nivel enterprise.</p>
+      </section>
+      <section class="profile-publishing feed" aria-label="Publicaciones del perfil">
+        <form class="composer panel profile-composer" id="postForm" action="#" method="get">
+          <h2 class="tittle-Add-Post">Crear publicación</h2>
+          <label class="composer-input">
+            <span class="visually-hidden">Nombre de usuario</span>
+            <input type="text" id="displayName" value="Mateo Valencia" placeholder="Autor: usuario actual" autocomplete="off">
+          </label>
+          <label class="composer-input">
+            <span class="visually-hidden">Contenido de la publicación</span>
+            <textarea id="text" placeholder="¿Qué quieres compartir?" rows="3" autocomplete="off"></textarea>
+          </label>
+          <label class="composer-input">
+            <span class="visually-hidden">Etiqueta</span>
+            <input type="text" id="label-post" placeholder="Etiqueta (ej. tecnologia)" autocomplete="off">
+          </label>
+          <div class="profile-publish-actions">
+            <button type="submit" class="publish-button button-post">Publicar</button>
+          </div>
+        </form>
+        <div id="postsContainer" aria-live="polite"></div>
+        <article class="post panel profile-post">
+          <header class="post-header">
+            <div class="post-author"><h2>Mateo Valencia</h2><p class="muted">Lead AI Architect en Loop</p></div>
+          </header>
+          <p class="post-copy">Llevando la infraestructura de Loop hacia arquitecturas descentralizadas de nueva generación. Un honor guiar el diseño técnico mobile. 🌐</p>
+          <footer class="post-actions"><button class="like" type="button"><span aria-hidden="true">♡</span> 142 likes</button><button class="comments" type="button"><span aria-hidden="true">▢</span> 38 comentarios</button></footer>
+        </article>
+      </section>
+    </div>
+  </main>
+  <div id="footerContainer"></div>
+  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content modal-delete-content">
+        <div class="modal-header border-0"><h5 class="modal-title">Eliminar publicación</h5></div>
+        <div class="modal-body"><p>¿Estás seguro de que quieres eliminar esta publicación? Esta acción no se puede deshacer.</p></div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn-cancelar-modal" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn-confirmar-eliminar" id="btnConfirmarEliminar">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../JS/main.js"></script>
+  <script type="module" src="../JS/perfil.js"></script>
+</body>
+</html>
+
+
