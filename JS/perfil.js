@@ -1,9 +1,42 @@
-const skills = ["Inteligencia artificial", "Arquitectura", "Cloud", "Python"];
+const PROFILE_STORAGE_KEY = "loop.profile";
 
+// Objeto del perfil; la imagen se conserva como una imagen JPEG optimizada.
+let profileData = {
+  name: "",
+  occupation: "",
+  location: "",
+  biography: "",
+  skills: [],
+  photo: ""
+};
+
+// Recupera y valida los datos guardados localmente.
+function loadProfile() {
+  try {
+    const savedProfile = JSON.parse(localStorage.getItem(PROFILE_STORAGE_KEY) || "null");
+    if (!savedProfile || typeof savedProfile !== "object" || Array.isArray(savedProfile)) return;
+
+    profileData = {
+      name: typeof savedProfile.name === "string" ? savedProfile.name : "",
+      occupation: typeof savedProfile.occupation === "string" ? savedProfile.occupation : "",
+      location: typeof savedProfile.location === "string" ? savedProfile.location : "",
+      biography: typeof savedProfile.biography === "string" ? savedProfile.biography : "",
+      skills: Array.isArray(savedProfile.skills)
+        ? savedProfile.skills.filter((skill) => typeof skill === "string")
+        : [],
+      photo: typeof savedProfile.photo === "string" ? savedProfile.photo : ""
+    };
+  } catch (error) {
+    console.warn("No se pudieron leer los datos guardados del perfil.", error);
+  }
+}
+
+// Crea una etiqueta por cada habilidad del perfil.
 function renderSkills() {
   const container = document.getElementById("skillsStack");
   if (!container) return;
-  container.replaceChildren(...skills.map((skill) => {
+
+  container.replaceChildren(...profileData.skills.map((skill) => {
     const tag = document.createElement("span");
     tag.className = "skill-chip";
     tag.textContent = skill;
@@ -11,21 +44,149 @@ function renderSkills() {
   }));
 }
 
-function markProfileNavigation() {
-  const profileLink = [...document.querySelectorAll(".nav-link")]
-    .find((link) => link.getAttribute("href")?.endsWith("/perfil.html"));
-  if (!profileLink) return false;
-  profileLink.classList.add("active");
-  profileLink.setAttribute("aria-current", "page");
-  return true;
+function renderProfilePhoto() {
+  const photo = document.getElementById("profilePhoto");
+  if (!photo) return;
+
+  if (profileData.photo) {
+    photo.src = profileData.photo;
+    photo.hidden = false;
+  } else {
+    photo.removeAttribute("src");
+    photo.hidden = true;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+// Actualiza los datos visibles del perfil y sus habilidades/foto.
+function renderProfile() {
+  document.getElementById("profileName").textContent = profileData.name;
+  document.getElementById("occupation").textContent = profileData.occupation;
+  document.getElementById("profileLocation").textContent = profileData.location;
+  document.getElementById("biography").textContent = profileData.biography;
   renderSkills();
-  if (markProfileNavigation()) return;
-  const observer = new MutationObserver(() => {
-    if (markProfileNavigation()) observer.disconnect();
+  renderProfilePhoto();
+}
+
+function populateProfileForm() {
+  document.getElementById("profileNameInput").value = profileData.name;
+  document.getElementById("occupationInput").value = profileData.occupation;
+  document.getElementById("profileLocationInput").value = profileData.location;
+  document.getElementById("skillsInput").value = profileData.skills.join(", ");
+  document.getElementById("biographyInput").value = profileData.biography;
+}
+
+// guarda en localStorage los datos que se escribieron en el formulario de edición
+function saveProfile(event) {
+  event.preventDefault();
+  const formData = new FormData(event.currentTarget);
+
+  profileData = {
+    ...profileData,
+    name: formData.get("name").trim(),
+    occupation: formData.get("occupation").trim(),
+    location: formData.get("location").trim(),
+    biography: formData.get("biography").trim(),
+    skills: formData.get("skills")
+      .split(",")
+      .map((skill) => skill.trim())
+      .filter(Boolean)
+  };
+
+  try {
+    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profileData));
+    renderProfile();
+    document.getElementById("profileEditor").hidden = true;
+    document.getElementById("editProfile").setAttribute("aria-expanded", "false");
+  } catch (error) {
+    console.error("No se pudieron guardar los datos del perfil.", error);
+  }
+}
+
+// Reduce la imagen antes de guardarla para limitar el espacio usado en LocalStorage.
+function optimizeProfilePhoto(file) {
+  return new Promise((resolve, reject) => {
+    const objectUrl = URL.createObjectURL(file);
+    const image = new Image();
+
+    image.onload = () => {
+      const maxDimension = 600;
+      const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(image.naturalWidth * scale);
+      canvas.height = Math.round(image.naturalHeight * scale);
+      const context = canvas.getContext("2d");
+
+      URL.revokeObjectURL(objectUrl);
+      if (!context) {
+        reject(new Error("No fue posible procesar la imagen."));
+        return;
+      }
+
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL("image/jpeg", 0.82));
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error("No fue posible abrir el archivo de imagen."));
+    };
+    image.src = objectUrl;
   });
-  observer.observe(document.body, { childList: true, subtree: true });
-});
+}
+
+
+// procesa el archivo que el usuario selecciona para su foto de perfil
+async function handleProfilePhotoChange(event) { // si no se elige una foto termina
+  const file = event.currentTarget.files?.[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) { // comprueba que sea un formato válido
+    console.error("Selecciona un archivo de imagen.");
+    event.currentTarget.value = "";
+    return;
+  } 
+
+  try { // guarda eprfil autorizado en localStorage
+    profileData.photo = await optimizeProfilePhoto(file);  
+    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profileData));
+    renderProfilePhoto();
+  } catch (error) {
+    console.error("No se pudo guardar la foto del perfil.", error);
+  } finally {
+    event.currentTarget.value = "";
+  }
+}
+
+
+// Busca los elementos necesarios del formulario y del botón. Si falta alguno, termina para evitar errores.
+// Carga los datos guardados desde localStorage con loadProfile() y los muestra en la página con renderProfile().
+function initProfile() {
+  const editor = document.getElementById("profileEditor");
+  const editButton = document.getElementById("editProfile");
+  const cancelButton = document.getElementById("cancelProfileEdit");
+  const photoInput = document.getElementById("profilePhotoInput");
+  const photoButton = document.getElementById("changeProfilePhoto");
+  if (!editor || !editButton || !cancelButton || !photoInput || !photoButton) return;
+
+  loadProfile();
+  renderProfile();
+
+  editButton.addEventListener("click", () => {
+    populateProfileForm();
+    editor.hidden = false;
+    editButton.setAttribute("aria-expanded", "true");
+    document.getElementById("profileNameInput").focus();
+  });
+
+  cancelButton.addEventListener("click", () => {
+    editor.hidden = true;
+    editButton.setAttribute("aria-expanded", "false");
+  });
+
+  editor.addEventListener("submit", saveProfile);
+  photoButton.addEventListener("click", () => photoInput.click());
+  photoInput.addEventListener("change", handleProfilePhotoChange);
+}
+
+//espera a que el HTML termine de cargarse para ejecutar initProfile()
+document.addEventListener("DOMContentLoaded", initProfile); 
 
