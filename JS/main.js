@@ -5,6 +5,41 @@ import { initSingUp } from './registro.js';
 
 // CARGAR COMPONENTES (menú y footer)
 
+function normalizarRuta(ruta) {
+  const rutaNormalizada = ruta.replace(/\/+$/, "").toLowerCase();
+  return rutaNormalizada || "/index.html";
+}
+
+function marcarNavegacionActiva() {
+  const enlaces = [...document.querySelectorAll(".site-header .nav-link[href]")];
+  if (enlaces.length === 0) return false;
+
+  const rutaActual = normalizarRuta(window.location.pathname);
+  const enlaceActivo = enlaces.find((enlace) => {
+    const rutaEnlace = new URL(enlace.getAttribute("href"), document.baseURI).pathname;
+    return normalizarRuta(rutaEnlace) === rutaActual;
+  });
+
+  enlaces.forEach((enlace) => {
+    enlace.classList.remove("active");
+    enlace.removeAttribute("aria-current");
+  });
+  if (enlaceActivo) {
+    enlaceActivo.classList.add("active");
+    enlaceActivo.setAttribute("aria-current", "page");
+  }
+  return true;
+}
+
+function observarNavegacion() {
+  if (marcarNavegacionActiva()) return;
+  const observer = new MutationObserver(() => {
+    if (marcarNavegacionActiva()) observer.disconnect();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+
 function cargarComponente(rutaArchivo, idContainer) {
   fetch(rutaArchivo)
     .then(respuesta => {
@@ -101,6 +136,7 @@ function mostrarPublicaciones() {
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Cargar menú y footer
   cargarComponente("../html/menu.html", "menuContainer");
+  observarNavegacion();
   cargarComponente("../html/footer.html", "footerContainer");
 
   // 2. Carrusel (solo si la página lo tiene)
@@ -115,3 +151,4 @@ document.addEventListener("DOMContentLoaded", () => {
    // 5. Inicializar el formulario de registro
   initSingUp();
 });
+
