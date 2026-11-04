@@ -147,7 +147,7 @@ button {
   border: 1px solid #302449; /* Borde violeta oscuro */
   border-radius: 9px; /* Esquinas redondeadas */
   background: #10101b; /* Fondo oscuro */
-  color: var(--text-muted); /* Color de texto neutro */
+  color: var(--vivid-purple); /* Color de texto neutro */
 }
 
 /* Icono dentro de la caja de búsqueda */
@@ -208,11 +208,17 @@ button {
 }
 
 /* Botones de navegación desplegable y menú responsive */
-.chevron, .menu-toggle { 
+.chevron, .menu-toggle {
   border: 0; /* Quita borde nativo */
   background: none; /* Sin fondo */
-  color: #a5a2b2; /* Color de icono */
+  color: var(--vivid-purple); /* Ícono violeta de marca */
   cursor: pointer; /* Cursor interactivo */
+  transition: color .2s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  color: var(--electric-violet);
 }
 
 /* Oculta el botón de menú hamburguesa por defecto en escritorio */
@@ -666,7 +672,7 @@ h2, p {
 }
 
 .mission-copy > p:not(.about-kicker) {
-  color: var(--text-muted);
+  color: var(--vivid-purple);
   font: 400 12px/1.65 var(--body-font);
 }
 
@@ -1450,4 +1456,6 @@ h2, p {
   .contact-form { min-height: 0; }
   .contact-image-space { min-height: 210px; }
 }
+
+
 

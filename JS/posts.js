@@ -5,6 +5,7 @@
 
 
 import { validarPublicacion } from './validarPublicacion.js';
+import { guardarDatosFormulario } from './storage.js';
 import {
   alertaPublicacionExitosa,
   alertaError
@@ -58,6 +59,8 @@ export function initPosts() {
       );
       return;
     }
+
+    guardarDatosFormulario("postForm", { displayName, text, labelPost }, { append: true });
 
     // Crear el article
     const postArticle = document.createElement('article');
@@ -166,6 +169,7 @@ document.addEventListener('submit', (e) => {
 
     if (!comentariosDB[postId]) comentariosDB[postId] = [];
     comentariosDB[postId].push({ autor: 'Tú', texto });
+    guardarDatosFormulario("comment-form", { postId, autor: "Tú", texto }, { append: true });
     input.value = '';
     mostrarComentarios(postId);
   }
@@ -354,4 +358,5 @@ function mostrarToast(mensaje, esError = false) {
     toast.classList.remove('visible');
   }, 2500);
 }
+
 

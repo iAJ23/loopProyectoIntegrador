@@ -2,6 +2,7 @@
 import { publicaciones } from './publicaciones.js';
 import { initPosts } from './posts.js';
 import { initSingUp } from './registro.js';
+import { initLogin } from './validacionesLogin.js';
 
 // CARGAR COMPONENTES (menú y footer)
 
@@ -150,5 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    // 5. Inicializar el formulario de registro
   initSingUp();
+  initLogin();
 });
+
 

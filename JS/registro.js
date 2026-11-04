@@ -1,19 +1,14 @@
+import { alertaFormulario } from './alerts.js';
+import { guardarDatosFormulario } from './storage.js';
+
 export function initSingUp() {
 // Referencias al formulario y al contenedor de alertas
 const form = document.getElementById("register-form");
 const alertContainer = document.getElementById("alertContainer");
+if (!form || !alertContainer) return;
 
 // Lista donde se van guardando los usuarios registrados (objetos JSON)
-const usuarios = [];
-
-// Muestra una alerta de Bootstrap (tipo: "danger" o "success")
-function mostrarAlerta(contenido, tipo) {
-  alertContainer.innerHTML = `
-    <div class="alert alert-${tipo} alert-dismissible fade show" role="alert">
-      ${contenido}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>`;
-}
+const USERS_STORAGE_KEY = "loop.users";
 
 // Validaciones de datos personales: nombre, apellido, username, correo y teléfono
 function validarDatosPersonales() {
@@ -152,8 +147,7 @@ form.addEventListener("submit", function (e) {
 
   // 2. Si hay errores, se muestran en una alerta y no se registra nada
   if (errores.length > 0) {
-    const lista = errores.map(error => `<li>${error}</li>`).join("");
-    mostrarAlerta(`<strong>Revisa los siguientes campos:</strong><ul class="mb-0">${lista}</ul>`, "danger");
+    alertaFormulario("Revisa los campos", errores.map((error) => error.replace(/<[^>]*>/g, "")).join(" · "));
     return; // Detiene la ejecución aquí
   }
 
@@ -167,13 +161,34 @@ form.addEventListener("submit", function (e) {
     password: document.getElementById("contrasena").value
   };
 
-  // 4. Se agrega a la lista y se muestra en formato JSON en la consola (F12)
+  // Guardar las cuentas para que el inicio de sesión pueda validarlas.
+  const usuarios = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY) || "[]");
   usuarios.push(usuarioNuevo);
-  console.log(JSON.stringify(usuarioNuevo, null, 2));
-  console.log("Usuarios registrados:", usuarios.length);
+  localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(usuarios));
+  guardarDatosFormulario("register-form", {
+    nombre: usuarioNuevo.nombre,
+    apellido: usuarioNuevo.apellido,
+    username: usuarioNuevo.username,
+    correo: usuarioNuevo.correo,
+    telefono: usuarioNuevo.telefono
+  });
 
-  // 5. Alerta de éxito y limpiar el formulario
-  mostrarAlerta("✓ Registro exitoso", "success");
+  // Mostrar el siguiente paso solo después de un registro válido.
+  alertaFormulario("Cuenta creada", "Tu cuenta se creó correctamente. Ya puedes iniciar sesión.", "success", {
+    toast: false,
+    showConfirmButton: true,
+    confirmButtonText: "Ir a iniciar sesión",
+    confirmButtonColor: "#c2ff42",
+    timer: undefined
+  }).then((resultado) => {
+    if (resultado.isConfirmed) window.location.href = "./login.html";
+  });
   form.reset();
 });
 }
+
+
+
+
+
+
