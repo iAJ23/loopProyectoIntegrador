@@ -1,3 +1,7 @@
+/* Mantiene violeta el ícono de búsqueda del header en la página de login. */
+.site-header .nav-actions .search-box > span {
+  color: var(--vivid-purple);
+}
 /* Presentación a dos columnas para la página de inicio de sesión */
 .login-layout {
   min-height: calc(100vh - 74px);

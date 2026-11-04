@@ -1,6 +1,24 @@
 
 /***** ALERTAS PERSONALIZADAS *****/
 
+// Notificaciones con el estilo LOOP usado por las alertas de publicaciones.
+export function alertaFormulario(titulo, mensaje, icono = "warning", opciones = {}) {
+  return Swal.fire({
+    toast: true,
+    position: "top",
+    icon: icono,
+    title: titulo,
+    text: mensaje,
+    showConfirmButton: false,
+    timer: 3500,
+    timerProgressBar: true,
+    background: "#171a21",
+    color: "#ffffff",
+    customClass: { popup: "swal-validation" },
+    ...opciones
+  });
+}
+
 // Publicación creada correctamente
 export function alertaPublicacionExitosa() {
   Swal.fire({
@@ -48,3 +66,5 @@ export function alertaConfirmacion(titulo, mensaje) {
     color: '#ffffff'
   });
 }
+
+

@@ -1,3 +1,6 @@
+import { alertaFormulario } from './alerts.js';
+import { guardarDatosFormulario } from './storage.js';
+
 // Inicialización de EmailJS
 emailjs.init({
   publicKey: "1npEs0v9qrtpCfH59"
@@ -67,14 +70,12 @@ form.addEventListener("submit", function (e) {
 
   // 3. Si hay errores, no se envía nada
   if (errores.length > 0) {
-    status.textContent = errores.join(" | ");
-    status.style.color = "red";
+    alertaFormulario("Revisa el formulario", errores.join(" · "));
     return; // Detiene la ejecución aquí
   }
 
   // 4. Si la validación pasó, se prepara el envío
-  status.textContent = "Enviando...";
-  status.style.color = "";
+  alertaFormulario("Enviando mensaje", "Tu mensaje se está enviando.", "info");
 
   const data = {
     name,
@@ -84,6 +85,8 @@ form.addEventListener("submit", function (e) {
     time: new Date().toLocaleString("es-MX")
   };
 
+  guardarDatosFormulario("contact-form", data, { append: true });
+
   // 5. Envío con EmailJS
   emailjs.send(
     "service_d19uam5",
@@ -92,11 +95,13 @@ form.addEventListener("submit", function (e) {
   )
   .then(function (response) {
     console.log("Éxito:", response);
-    status.textContent = "✓ Mensaje enviado";
+    alertaFormulario("Mensaje enviado", "Gracias por contactarnos. Te responderemos pronto.", "success");
     form.reset();
   })
   .catch(function (error) {
     console.error("ERROR COMPLETO:", error);
-    status.textContent = "Ocurrió un error al enviar el mensaje. Intenta de nuevo.";
+    alertaFormulario("No se pudo enviar", "Ocurrió un error al enviar el mensaje. Intenta de nuevo.", "error");
   });
 });
+
+
