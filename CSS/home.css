@@ -123,6 +123,14 @@ h2, p {
   padding: 9px 12px; 
 }
 
+.composer-username {
+  margin: 0 0 2px;
+  color: var(--text-muted);
+  font-family: var(--heading-font);
+  font-size: 12px;
+  font-weight: 400;
+}
+
 /* Campo de entrada de texto del compositor */
 .composer-input { 
   display: flex; 

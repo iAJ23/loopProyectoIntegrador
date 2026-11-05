@@ -173,8 +173,8 @@ form.addEventListener("submit", function (e) {
     telefono: usuarioNuevo.telefono
   });
 
-  // Mostrar el siguiente paso solo después de un registro válido.
-  alertaFormulario("Cuenta creada", "Tu cuenta se creó correctamente. Ya puedes iniciar sesión.", "success", {
+  // Después del registro, continuar al inicio de sesión.
+  alertaFormulario("Cuenta creada", "Tu cuenta se creó correctamente. Ahora inicia sesión para continuar.", "success", {
     toast: false,
     showConfirmButton: true,
     confirmButtonText: "Ir a iniciar sesión",

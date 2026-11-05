@@ -3,6 +3,7 @@ import { publicaciones } from './publicaciones.js';
 import { initPosts } from './posts.js';
 import { initSingUp } from './registro.js';
 import { initLogin } from './validacionesLogin.js';
+import { syncMenuAvatar } from './profileAvatar.js';
 
 // CARGAR COMPONENTES (menú y footer)
 
@@ -49,7 +50,10 @@ function cargarComponente(rutaArchivo, idContainer) {
     })
     .then(htmlContenido => {
       const contenedor = document.getElementById(idContainer);
-      if (contenedor) contenedor.outerHTML = htmlContenido;
+      if (contenedor) {
+        contenedor.outerHTML = htmlContenido;
+        if (idContainer === "menuContainer") syncMenuAvatar();
+      }
     })
     .catch(error => console.error("Error al cargar componente:", error));
 }

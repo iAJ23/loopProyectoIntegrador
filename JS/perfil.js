@@ -1,12 +1,14 @@
 import { guardarDatosFormulario } from './storage.js';
+import { syncMenuAvatar } from './profileAvatar.js';
 
-const PROFILE_STORAGE_KEY = "loop.profile";
+const PROFILE_STORAGE_PREFIX = "loop.profile.";
+let profileStorageKey = PROFILE_STORAGE_PREFIX + "guest";
 
 // Objeto del perfil; la imagen se conserva como una imagen JPEG optimizada.
 let profileData = {
   name: "",
+  username: "",
   occupation: "",
-  location: "",
   biography: "",
   skills: [],
   photo: ""
@@ -18,17 +20,29 @@ function loadProfile() {
   let currentUser = null;
 
   try {
-    savedProfile = JSON.parse(localStorage.getItem(PROFILE_STORAGE_KEY) || "null");
     currentUser = JSON.parse(localStorage.getItem("loop.currentUser") || "null");
   } catch (error) {
-    console.warn("No se pudieron leer los datos guardados del perfil o la sesión.", error);
+    console.warn("No se pudieron leer los datos de la sesión.", error);
+  }
+
+  // Cada cuenta conserva su propio perfil, evitando reutilizar el perfil de otra sesión.
+  const username = typeof currentUser?.username === "string" ? currentUser.username.trim().toLowerCase() : "";
+  profileStorageKey = username
+    ? `${PROFILE_STORAGE_PREFIX}${encodeURIComponent(username)}`
+    : `${PROFILE_STORAGE_PREFIX}guest`;
+  profileData.username = username ? currentUser.username : "";
+  try {
+    savedProfile = JSON.parse(localStorage.getItem(profileStorageKey) || "null");
+  } catch (error) {
+    console.warn("No se pudieron leer los datos del perfil de esta cuenta.", error);
+    savedProfile = null;
   }
 
   if (savedProfile && typeof savedProfile === "object" && !Array.isArray(savedProfile)) {
     profileData = {
       name: typeof savedProfile.name === "string" ? savedProfile.name : "",
+      username: username ? currentUser.username : "",
       occupation: typeof savedProfile.occupation === "string" ? savedProfile.occupation : "",
-      location: typeof savedProfile.location === "string" ? savedProfile.location : "",
       biography: typeof savedProfile.biography === "string" ? savedProfile.biography : "",
       skills: Array.isArray(savedProfile.skills)
         ? savedProfile.skills.filter((skill) => typeof skill === "string")
@@ -44,7 +58,6 @@ function loadProfile() {
   guardarDatosFormulario("profileEditor", {
     name: profileData.name,
     occupation: profileData.occupation,
-    location: profileData.location,
     biography: profileData.biography,
     skills: profileData.skills
   });
@@ -52,11 +65,10 @@ function loadProfile() {
   // Al abrir el perfil por primera vez después del login, conservar sus datos base.
   if (currentUser && !savedProfile) {
     try {
-      localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profileData));
+      localStorage.setItem(profileStorageKey, JSON.stringify(profileData));
     guardarDatosFormulario("profileEditor", {
       name: profileData.name,
       occupation: profileData.occupation,
-      location: profileData.location,
       biography: profileData.biography,
       skills: profileData.skills
     });
@@ -89,13 +101,14 @@ function renderProfilePhoto() {
     photo.removeAttribute("src");
     photo.hidden = true;
   }
+  syncMenuAvatar(profileData.photo);
 }
 
 // Actualiza los datos visibles del perfil y sus habilidades/foto.
 function renderProfile() {
   document.getElementById("profileName").textContent = profileData.name;
+  document.getElementById("profileUsername").textContent = profileData.username ? `@${profileData.username}` : "";
   document.getElementById("occupation").textContent = profileData.occupation;
-  document.getElementById("profileLocation").textContent = profileData.location;
   document.getElementById("biography").textContent = profileData.biography;
   renderSkills();
   renderProfilePhoto();
@@ -104,7 +117,6 @@ function renderProfile() {
 function populateProfileForm() {
   document.getElementById("profileNameInput").value = profileData.name;
   document.getElementById("occupationInput").value = profileData.occupation;
-  document.getElementById("profileLocationInput").value = profileData.location;
   document.getElementById("skillsInput").value = profileData.skills.join(", ");
   document.getElementById("biographyInput").value = profileData.biography;
 }
@@ -118,7 +130,6 @@ function saveProfile(event) {
     ...profileData,
     name: formData.get("name").trim(),
     occupation: formData.get("occupation").trim(),
-    location: formData.get("location").trim(),
     biography: formData.get("biography").trim(),
     skills: formData.get("skills")
       .split(",")
@@ -127,11 +138,10 @@ function saveProfile(event) {
   };
 
   try {
-    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profileData));
+    localStorage.setItem(profileStorageKey, JSON.stringify(profileData));
     guardarDatosFormulario("profileEditor", {
       name: profileData.name,
       occupation: profileData.occupation,
-      location: profileData.location,
       biography: profileData.biography,
       skills: profileData.skills
     });
@@ -188,11 +198,10 @@ async function handleProfilePhotoChange(event) { // si no se elige una foto term
 
   try { // guarda eprfil autorizado en localStorage
     profileData.photo = await optimizeProfilePhoto(file);  
-    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profileData));
+    localStorage.setItem(profileStorageKey, JSON.stringify(profileData));
     guardarDatosFormulario("profileEditor", {
       name: profileData.name,
       occupation: profileData.occupation,
-      location: profileData.location,
       biography: profileData.biography,
       skills: profileData.skills
     });
