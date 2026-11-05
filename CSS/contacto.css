@@ -113,18 +113,18 @@
 .channel-card h2 {
   margin: 3px 0 5px;
   color: #e9e7f1;
-  font: 700 10px var(--heading-font);
+  font: 700 14px var(--heading-font);
 }
 
 .channel-card p {
   margin: 0 0 5px;
   color: var(--text-muted);
-  font: 400 9px/1.45 var(--body-font);
+  font: 400 15px/1.45 var(--body-font);
 }
 
 .channel-detail {
   color: var(--lime);
-  font: 700 8px var(--mono-font);
+  font: 700 12px var(--mono-font);
 }
 
 /* FORMULARIO + IMAGEN: columnas como en el wireframe de alta fidelidad */
@@ -132,12 +132,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 15px;
-  margin: 45px -23px 3px;
+  margin: 45px 0 3px;
 }
 
 .contact-form {
-  min-height: 295px;
-  padding: 17px 18px;
+  min-height: 420px;
+  padding: 22px 24px;
   background: #11111f;
   border-color: #302044;
   border-radius: 13px;
@@ -146,25 +146,25 @@
 .contact-form h2 {
   margin: 0 0 12px;
   color: #e9e7f1;
-  font: 700 13px var(--heading-font);
+  font: 700 17px var(--heading-font);
 }
 
-.form-field { margin-bottom: 10px; }
+.form-field { margin-bottom: 18px; }
 
 .form-field label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: #d8d5e1;
   text-transform: uppercase;
-  font: 700 7px var(--mono-font);
+  font: 700 11px var(--mono-font);
 }
 
 .form-field input,
 .form-field textarea {
   display: block;
   width: 100%;
-  min-height: 29px;
-  padding: 7px 9px;
+  min-height: 36px;
+  padding: 9px 11px;
   border: 1px solid #29233d;
   border-radius: 6px;
   outline: 0;
@@ -174,7 +174,7 @@
 }
 
 .form-field textarea {
-  min-height: 64px;
+  min-height: 90px;
   resize: vertical;
 }
 
@@ -204,7 +204,7 @@
 
 /* ESPACIO PARA IMAGEN: conserva el panel vacío mostrado en el wireframe */
 .contact-image-space {
-  min-height: 295px;
+  min-height: 420px;
   border: 1px solid #302044;
   border-radius: 13px;
   background: #11111f;
@@ -216,7 +216,6 @@
 /* TABLET: reduce márgenes y conserva dos columnas mientras quepan */
 @media (max-width: 800px) {
   .contact-page { width: min(100% - 36px, 720px); }
-  .contact-lower { margin-right: -18px; margin-left: -18px; }
   .contact-hero h1 { font-size: 24px; }
 }
 

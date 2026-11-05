@@ -26,8 +26,8 @@
         </div>
         <div class="profile-heading">
           <h1 id="profileName"></h1>
+          <p class="profile-username" id="profileUsername"></p>
           <p class="profile-occupation" id="occupation"></p>
-          <p class="profile-location" id="profileLocation"></p>
           <div class="profile-skills">
             <span>Skills / stack:</span>
             <div id="skillsStack" aria-label="Skills y stack"></div>
@@ -43,8 +43,6 @@
       <input id="profileNameInput" name="name" type="text" autocomplete="name">
       <label for="occupationInput">Ocupación</label>
       <input id="occupationInput" name="occupation" type="text">
-      <label for="profileLocationInput">Ubicación</label>
-      <input id="profileLocationInput" name="location" type="text" autocomplete="address-level2">
       <label for="skillsInput">Skills / stack</label>
       <input id="skillsInput" name="skills" type="text" placeholder="Separa las habilidades con comas">
       <label for="biographyInput">Acerca de mí</label>
@@ -62,11 +60,8 @@
       </section>
       <section class="profile-publishing feed" aria-label="Publicaciones del perfil">
         <form class="composer panel profile-composer" id="postForm" action="#" method="get">
+          <p class="composer-username" id="composerUsername"></p>
           <h2 class="tittle-Add-Post">Crear publicación</h2>
-          <label class="composer-input">
-            <span class="visually-hidden">Nombre de usuario</span>
-            <input type="text" id="displayName" placeholder="Nombre de usuario" autocomplete="off">
-          </label>
           <label class="composer-input">
             <span class="visually-hidden">Contenido de la publicación</span>
             <textarea id="text" placeholder="¿Qué quieres compartir?" rows="3" autocomplete="off"></textarea>

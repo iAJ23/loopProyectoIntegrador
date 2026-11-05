@@ -195,6 +195,12 @@ button {
   cursor: pointer; /* Cambia el cursor a mano interactiva */
 }
 
+.avatar-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Modificador para avatar muy pequeño */
 .avatar-mini { 
   width: 24px; /* Ancho mini */

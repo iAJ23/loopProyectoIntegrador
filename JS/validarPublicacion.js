@@ -3,7 +3,6 @@
 
 export function validarPublicacion({
   postForm,
-  displayNameInput,
   textInput,
   labelPostInput
 }) {
@@ -12,12 +11,11 @@ export function validarPublicacion({
     error.remove();
   });
 
-  [displayNameInput, textInput, labelPostInput].forEach(input => {
+  [textInput, labelPostInput].forEach(input => {
     input.removeAttribute('aria-invalid');
     input.classList.remove('is-invalid');
   });
 
-  const displayName = displayNameInput.value.trim().replace(/\s+/g, ' ');
   const text = textInput.value.trim();
   const labelPost = labelPostInput.value.trim().replace(/^#+/, '');
 
@@ -32,30 +30,15 @@ export function validarPublicacion({
     }
   }
 
-  // Validar nombre
-  if (!displayName) {
-    setError(displayNameInput, 'El nombre es obligatorio.');
-  } else if (displayName.length < 3) {
-    setError(displayNameInput, 'El nombre debe tener al menos 3 caracteres.');
-  } else if (displayName.length > 40) {
-    setError(displayNameInput, 'El nombre no puede superar los 40 caracteres.');
-  } else if (!/[\p{L}]/u.test(displayName)) {
-    setError(displayNameInput, 'El nombre debe contener al menos una letra.');
-  } else if (!/^[\p{L}\p{M}\p{N} .'-]+$/u.test(displayName)) {
-    setError(displayNameInput, 'El nombre contiene caracteres no permitidos.');
-  }
-
   // Validar publicación
-  if (!errorMessage) {
-    if (!text) {
+  if (!text) {
       setError(textInput, 'Escribe el contenido de tu publicación.');
-    } else if (text.length < 5) {
+  } else if (text.length < 5) {
       setError(textInput, 'La publicación debe tener al menos 5 caracteres.');
-    } else if (text.length > 300) {
+  } else if (text.length > 300) {
       setError(textInput, 'La publicación no puede superar los 300 caracteres.');
-    } else if (!/[\p{L}\p{N}]/u.test(text)) {
+  } else if (!/[\p{L}\p{N}]/u.test(text)) {
       setError(textInput, 'La publicación debe contener letras o números.');
-    }
   }
 
   // Validar etiqueta
@@ -101,9 +84,5 @@ export function validarPublicacion({
   }
 
   // Devolver datos válidos
-  return {
-    displayName,
-    text,
-    labelPost
-  };
+  return { text, labelPost };
 }

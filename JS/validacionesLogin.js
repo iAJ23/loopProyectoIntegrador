@@ -37,7 +37,15 @@ export function initLogin() {
       username: usuario.username,
       correo: usuario.correo
     });
-    window.location.href = "./perfil.html";
+    alertaFormulario("Inicio de sesión correcto", "Tus datos fueron validados. Ya puedes entrar a Mi perfil.", "success", {
+      toast: false,
+      showConfirmButton: true,
+      confirmButtonText: "Ir a Mi perfil",
+      confirmButtonColor: "#c2ff42",
+      timer: undefined
+    }).then((resultado) => {
+      if (resultado.isConfirmed) window.location.href = "./perfil.html";
+    });
   });
 }
 

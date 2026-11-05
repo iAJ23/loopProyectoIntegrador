@@ -19,17 +19,27 @@ export function initPosts() {
   const postForm = document.getElementById('postForm');
   if (!postForm) return;
 
+  let currentUser = null;
+  try {
+    currentUser = JSON.parse(localStorage.getItem('loop.currentUser') || 'null');
+  } catch (error) {
+    console.warn('No se pudo leer el usuario activo.', error);
+  }
+  const usernameHeading = document.getElementById('composerUsername');
+  if (usernameHeading) {
+    usernameHeading.textContent = currentUser?.username ? `@${currentUser.username}` : '';
+  }
+
   postForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     // Obtener elementos del DOM
-    const displayNameInput = document.getElementById('displayName');
     const textInput = document.getElementById('text');
     const labelPostInput = document.getElementById('label-post');
     const container = document.getElementById('postsContainer');
 
     // Validar que existan los campos
-    if (!displayNameInput || !textInput || !labelPostInput) {
+    if (!textInput || !labelPostInput) {
       alertaError(
         'Formulario incompleto',
         'No se encontraron todos los campos necesarios.'
@@ -37,10 +47,15 @@ export function initPosts() {
       return;
     }
 
+    const displayName = typeof currentUser?.username === 'string' ? currentUser.username.trim() : '';
+    if (!displayName) {
+      alertaError('Inicia sesión', 'Inicia sesión para publicar con tu username.');
+      return;
+    }
+
     //  Llamada formulario y los inputs
     const datos = validarPublicacion({
       postForm: event.target,
-      displayNameInput,
       textInput,
       labelPostInput
     });
@@ -49,7 +64,7 @@ export function initPosts() {
     if (!datos) return;
 
     // Extraer los valores ya validados y limpios
-    const { displayName, text, labelPost } = datos;
+    const { text, labelPost } = datos;
 
     // Validar contenedor
     if (!container) {
@@ -137,13 +152,17 @@ export function initPosts() {
 
     // Evento del botón "like"
     const likeBtn = postArticle.querySelector('.like');
+    likeBtn.setAttribute('aria-pressed', 'false');
     likeBtn.addEventListener('click', function () {
       const countSpan = this.querySelector('.likes-count');
-      let currentLikes = parseInt(countSpan.textContent) || 0;
-      currentLikes++;
-      countSpan.textContent = currentLikes;
-      this.querySelector('span[aria-hidden="true"]').textContent = '♥';
-      this.style.color = '#c2ff42';
+      const isLiked = this.getAttribute('aria-pressed') === 'true';
+      const currentLikes = parseInt(countSpan.textContent, 10) || 0;
+      const nextLikes = Math.max(0, currentLikes + (isLiked ? -1 : 1));
+      this.setAttribute('aria-pressed', String(!isLiked));
+      countSpan.textContent = nextLikes;
+      const heart = this.querySelector('span[aria-hidden="true"]');
+      heart.textContent = isLiked ? '♡' : '♥';
+      this.style.color = isLiked ? '' : '#c2ff42';
     });
 
     // Insertar al principio y resetear

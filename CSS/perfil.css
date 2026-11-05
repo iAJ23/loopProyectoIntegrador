@@ -61,21 +61,21 @@
   front-size: 24px;
 }
 
-.profile-occupation,
-.profile-location {
+.profile-username,
+.profile-occupation {
   margin: 0;
   color: var(--text-muted);
   font-size: 20px;
 }
 
-.profile-location {
-  font-size: 10px;
+.profile-username {
+  font-size: 20px;
 }
 
 .profile-skills {
   margin-top: 10px;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .profile-skills > div {
@@ -90,7 +90,7 @@
   border: 1px solid #38245a;
   border-radius: 999px;
   color: #c7b5ff;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .profile-edit {
@@ -127,13 +127,13 @@
 .profile-about h2 {
   margin: 0 0 10px;
   color: var(--white);
-  font: 700 13px var(--heading-font);
+  font: 700 15px var(--heading-font);
 }
 
 .profile-about p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.65;
 }
 
